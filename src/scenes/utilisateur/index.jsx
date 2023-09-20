@@ -36,7 +36,7 @@ const Utilisateur = () => {
     {
       field: "image",
       headerName: "Image",
-      flex: 0.8,
+      flex: 0.5,
       renderCell: ({ row: { image ,_id } }) => {
         return (
    
@@ -47,8 +47,8 @@ const Utilisateur = () => {
     },
     {
       field: "approved",
-      headerName: "Statue",
-      flex: 0.8,
+      headerName: "Approuvé",
+      flex: 0.5,
       renderCell: ({ row: { approved ,_id } }) => {
         return (
    <>
@@ -60,6 +60,11 @@ const Utilisateur = () => {
          
         );
       },
+    },
+    {
+      field: "statue",
+      headerName: "Statue",
+      flex: 0.5,
     },
 
 

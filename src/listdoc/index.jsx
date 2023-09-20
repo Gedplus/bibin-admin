@@ -74,7 +74,7 @@ const deleteDocData = async (id) => {
  gutterBottom
  variant="h4" component="div" sx={{ mb: "1.5rem" }}
 >
-{statue}
+{data == undefined  ? (<>sxxdd</>) : (<>{data.map((user) => {return( <>    {auteur == user._id ? ( <>{user.statue}</>):(<></>)}</>)  })}</>)}
 </Typography>
         <Typography
  
