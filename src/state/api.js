@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import axios from 'axios';
 
 export const api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }), 
+  baseQuery: fetchBaseQuery({ baseUrl: "https://api.bibintunisie.com" }), 
   reducerPath: "adminApi",
   tagTypes: [
     "User",
@@ -63,54 +63,54 @@ export const {
  useGetReclamationQuery,useGetUtilisateursDemandeQuery,useGetMediaQuery,useGetPackQuery, useGetCommandeQuery
   } = api;
   export const addUser = async (user) => {
-    return await axios.post(`${process.env.REACT_APP_BASE_URL}/general/Useradd`, user);
+    return await axios.post(`https://api.bibintunisie.com/general/Useradd`, user);
 }
 export const addPack = async (pack) => {
-  return await axios.post(`${process.env.REACT_APP_BASE_URL}/pack/packAdd`, pack);
+  return await axios.post(`https://api.bibintunisie.com/pack/packAdd`, pack);
 }
 export const deletePack = async (id) => {
-  return await axios.delete(`${process.env.REACT_APP_BASE_URL}/pack/${id}`);
+  return await axios.delete(`https://api.bibintunisie.compack/${id}`);
 }
 export const deleteUser = async (id) => {
-  return await axios.delete(`${process.env.REACT_APP_BASE_URL}/client/${id}`);
+  return await axios.delete(`https://api.bibintunisie.com/client/${id}`);
 }
 export const getUser = async (id) => {
-  return await axios.get(`${process.env.REACT_APP_BASE_URL}/client/${id}`);
+  return await axios.get(`https://api.bibintunisie.com/client/${id}`);
 }
 export const editUser = async (id, user) => {
-  return await axios.put(`${process.env.REACT_APP_BASE_URL}/client/${id}`, user)
+  return await axios.put(`https://api.bibintunisie.com/client/${id}`, user)
 }
 export const getMedia = async (id) => {
-  return await axios.get(`${process.env.REACT_APP_BASE_URL}/media/${id}`);
+  return await axios.get(`https://api.bibintunisie.com/media/${id}`);
 }
 export const getPackid = async (id) => {
-  return await axios.get(`${process.env.REACT_APP_BASE_URL}/pack/${id}`);
+  return await axios.get(`https://api.bibintunisie.com/pack/${id}`);
 }
 export const editpack = async (id, pack) => {
-  return await axios.put(`${process.env.REACT_APP_BASE_URL}/pack/${id}`, pack)
+  return await axios.put(`https://api.bibintunisie.com/pack/${id}`, pack)
 }
 export const editMedia = async (id, media) => {
-  return await axios.put(`${process.env.REACT_APP_BASE_URL}/media/${id}`, media)
+  return await axios.put(`https://api.bibintunisie.com/media/${id}`, media)
 }
 export const editDocument = async (id, document) => {
-  return await axios.put(`${process.env.REACT_APP_BASE_URL}/client/documents/${id}`, document)
+  return await axios.put(`https://api.bibintunisie.com/client/documents/${id}`, document)
 }
 export const deleteContact = async (id) => {
-  return await axios.delete(`${process.env.REACT_APP_BASE_URL}/general/contact/${id}`);
+  return await axios.delete(`https://api.bibintunisie.com/general/contact/${id}`);
 }
 export const addDocument = async (document) => {
-  return await axios.post(`${process.env.REACT_APP_BASE_URL}/general/DocumentAdd`, document);
+  return await axios.post(`https://api.bibintunisie.com/general/DocumentAdd`, document);
 }
 
 export const deleteReclamation = async (id) => {
-  return await axios.delete(`${process.env.REACT_APP_BASE_URL}/general/Reclation/${id}`);
+  return await axios.delete(`https://api.bibintunisie.com/general/Reclation/${id}`);
 }
 export const deleteMedia = async (id) => {
-  return await axios.delete(`${process.env.REACT_APP_BASE_URL}/media/${id}`);
+  return await axios.delete(`https://api.bibintunisie.com/media/${id}`);
 }
 export const getCommandeid = async (id) => {
-  return await axios.get(`${process.env.REACT_APP_BASE_URL}/commande/commande/${id}`);
+  return await axios.get(`https://api.bibintunisie.com/commande/commande/${id}`);
 }
 export const deleteDoc = async (id) => {
-  return await axios.delete(`${process.env.REACT_APP_BASE_URL}/general/${id}`);
+  return await axios.delete(`https://api.bibintunisie.com/general/${id}`);
 }

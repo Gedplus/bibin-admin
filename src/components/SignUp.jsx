@@ -12,7 +12,7 @@ const Signup1 = () => {
     e.preventDefault();
 
  
-    fetch("http://localhost:5001/register", {
+    fetch("https://api.bibintunisie.com/register", {
       method: "POST",
       crossDomain: true,
       headers: {
