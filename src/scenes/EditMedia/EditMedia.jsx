@@ -93,7 +93,7 @@ useEffect(() => {
                 sx={{ gridColumn: "span 2" }}
               />
                {data == undefined ? (
-<></>):(<><FormControl
+<></>):(<>{console.log(auteur)}<FormControl
                   
                   sx={{ gridColumn: "span 2" }}
                     >
@@ -111,6 +111,7 @@ useEffect(() => {
                         label="Etablissement"
                         onChange={(e) => onValueChange(e)}
                         value={auteur}
+                        
                         color="secondary"
 name="auteur"
                       >

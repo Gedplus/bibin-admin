@@ -6,17 +6,21 @@ import { useState, useEffect } from 'react';
 import { addUser, editUser, getUser } from "state/api";
 import { useNavigate, useParams } from 'react-router-dom';
 import Header from "components/Header";
-
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 const EditUser = () => { 
     const [user, setUser] = useState(initialValues);
   const isNonMobile = useMediaQuery("(min-width:600px)");
-  
+  const [selected, setSelected] = useState("");
 const [image , setImage] = useState("")
-  const { name, email, password} = user;
+  const { name, email, password , phoneNumber} = user;
 
 const navigate = useNavigate();
 const { id } = useParams();
-
+console.log(user)
 
 
 useEffect(() => {
@@ -24,12 +28,16 @@ useEffect(() => {
         const response = await getUser(id);
         setUser(response.data);
         setImage(response.data.image)
-   
+        setSelected(response.data.statue)
+
     }
     loadUserDetails();
   }, []);
   
+  function handleChange1(event) {
+    setSelected(event.target.value);
 
+  }
 function convertToBase64(e){
   console.log(e);
   var reader = new FileReader();
@@ -42,11 +50,15 @@ function convertToBase64(e){
   reader.onerror = error => {
    
   }}
+ 
+
 
   const handleFormSubmit = async() => {
-   
-     await editUser(id, user);
-    navigate('/users');
+  
+    await  setUser({...user, statue: selected})
+  editUser(id, user);
+  navigate("/utilisateur")
+
   };
   const onValueChange = (e) => {
   
@@ -58,9 +70,9 @@ function convertToBase64(e){
       <Header title="Modifier l'utilisateur" subtitle="Modifier le profil utilisateur" />
 
       <Formik
-        onSubmit={handleFormSubmit}
+       
   
-        validationSchema={checkoutSchema}
+
       >
         {({
       
@@ -68,8 +80,8 @@ function convertToBase64(e){
           touched,
           handleBlur,
         
-        }) => (
-          <form onSubmit={handleFormSubmit}>
+        }) => (      <form onSubmit={handleFormSubmit}>
+
             <Box
               display="grid"
               gap="30px"
@@ -78,11 +90,25 @@ function convertToBase64(e){
                 "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
               }}
             >
+                         <FormControl          sx={{ gridColumn: "span 4" }}>
+      <FormLabel id="demo-row-radio-buttons-group-label"    style={{fontSize:"20px"}} color="secondary"  >vous êtes étudiant(e) ou professionnel(le)</FormLabel>
+      <RadioGroup
+        row
+        aria-labelledby="demo-row-radio-buttons-group-label"
+        name="row-radio-buttons-group"
+        onChange = {handleChange1}
+        value={selected}
+      >
+        <FormControlLabel value="etudiant" control={<Radio   color="default" />} label="etudiant"/>
+        <FormControlLabel value="professionnel" control={<Radio color="default"  />} label="professionnel" />
+     
+      </RadioGroup>
+    </FormControl>
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="name"
+                label="Nom et prénom "
                 onBlur={handleBlur}
                 onChange={(e) => onValueChange(e)}
     
@@ -109,7 +135,7 @@ function convertToBase64(e){
                 fullWidth
                 variant="filled"
                 type="text"
-                label="password"
+                label="Mot de passe"
                 onBlur={handleBlur}
                 onChange={(e) => onValueChange(e)}
                 value={password}
@@ -118,7 +144,19 @@ function convertToBase64(e){
                 helperText={touched.password && errors.password}
                 sx={{ gridColumn: "span 4" }}
               />
-              
+                    <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Téléphone"
+                onBlur={handleBlur}
+                onChange={(e) => onValueChange(e)}
+                value={phoneNumber}
+                name="phoneNumber"
+               
+     
+                sx={{ gridColumn: "span 2" }}
+              />
              <input accept="image/*"
              type="file" 
              onChange={convertToBase64}/>
@@ -129,11 +167,11 @@ function convertToBase64(e){
             
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained">
+              <Button type="submit" onClick={handleFormSubmit} color="secondary" variant="contained">
                 Modifier l'utilisateur
               </Button>
             </Box>
-          </form>
+ </form>
         )}
       </Formik>
     </Box>

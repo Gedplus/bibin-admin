@@ -28,7 +28,7 @@ export default function Login() {
           window.localStorage.setItem("token", data.data._id);
           window.localStorage.setItem("loggedIn", true);
 
-          window.location.href = "./";
+          window.location.href = "./dashboard";
         }
       });
   }

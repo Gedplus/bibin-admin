@@ -189,6 +189,13 @@ Bibin
               setSelected={setSelected}
             />
                   <Item
+              title="Documents en attente"
+              to="/DocApprover"
+              icon={<ArticleIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+                  <Item
               title="Ajouter un document"
               to="/documents"
               icon={<NoteAddIcon />}

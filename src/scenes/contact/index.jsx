@@ -23,10 +23,12 @@ const Contact = () => {
 
   const columns = [
     {
-        field: "email",
-        headerName: "Email",
-        flex: 0.8,
-      },
+      field: 'id' , 
+      headerName: 'id', 
+      filterable: false,
+      renderCell:(index) => index.api.getRowIndexRelativeToVisibleRows(index.row._id) + 1,
+  },
+
     {
       field: "subject",
       headerName: "sujet",

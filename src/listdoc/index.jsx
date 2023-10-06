@@ -32,7 +32,7 @@ const Product = ({
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const { data, isLoading } = useGetUtilisateursQuery();
+  const { data, isLoading } = useGetUtilisateursQuery(); 
 
 function downloadFileAtURL(url) {
   downloadPDF(url,"Test");

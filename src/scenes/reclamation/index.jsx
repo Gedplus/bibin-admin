@@ -23,6 +23,12 @@ const Reclamation = () => {
 
   const columns = [
     {
+      field: 'id' , 
+      headerName: 'id', 
+      filterable: false,
+      renderCell:(index) => index.api.getRowIndexRelativeToVisibleRows(index.row._id) + 1,
+  },
+    {
         field: "NomPrenom",
         headerName: "Nom et prénom",
         flex: 0.8,

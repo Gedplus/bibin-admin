@@ -20,6 +20,10 @@ export const api = createApi({
         query: () => "client/utilisateurs",
         providesTags: ["utilisateurs"],
       }), 
+      getDocApprover: build.query({
+        query: () => "client/DocApprover",
+        providesTags: ["DocApprover"],
+      }), 
       getUtilisateursDemande: build.query({
         query: () => "client/utilisateursDemande",
         providesTags: ["utilisateursDemande"],
@@ -60,7 +64,7 @@ export const {
   useGetUtilisateursQuery,
   useGetAdminQuery,useGetContactQuery,
   useGetDocumentQuery,
- useGetReclamationQuery,useGetUtilisateursDemandeQuery,useGetMediaQuery,useGetPackQuery, useGetCommandeQuery
+ useGetReclamationQuery,useGetUtilisateursDemandeQuery,useGetMediaQuery,useGetPackQuery, useGetCommandeQuery , useGetDocApproverQuery
   } = api;
   export const addUser = async (user) => {
     return await axios.post(`https://api.bibintunisie.com/general/Useradd`, user);
@@ -78,7 +82,13 @@ export const getUser = async (id) => {
   return await axios.get(`https://api.bibintunisie.com/client/${id}`);
 }
 export const editUser = async (id, user) => {
-  return await axios.put(`https://api.bibintunisie.com/client/${id}`, user)
+  return await axios.put(`https://api.bibintunisie.comclient/${id}`, user)
+}
+export const getDocUser = async (id) => {
+  return await axios.get(`https://api.bibintunisie.comclient/documentsUser/${id}`);
+}
+export const getVideoUser = async (id) => {
+  return await axios.get(`https://api.bibintunisie.com/media/mediaUser/${id}`);
 }
 export const getMedia = async (id) => {
   return await axios.get(`https://api.bibintunisie.com/media/${id}`);
@@ -113,4 +123,7 @@ export const getCommandeid = async (id) => {
 }
 export const deleteDoc = async (id) => {
   return await axios.delete(`https://api.bibintunisie.com/general/${id}`);
+}
+export const getDocument= async (id) => {
+  return await axios.get(`https://api.bibintunisie.com/general/Document/${id}`);
 }

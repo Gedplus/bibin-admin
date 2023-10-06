@@ -6,30 +6,42 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
-import { Link } from 'react-router-dom';
-import { deleteMedia, deleteUser, useGetMediaQuery } from "state/api";
+import { Link, useParams } from 'react-router-dom';
+import { deleteMedia, deleteUser, getVideoUser, useGetMediaQuery } from "state/api";
 import {  Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
-const ListVideo = () => {
+import { useState } from "react";
+import { useEffect } from "react";
+const ListVideoUser = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const { data, isLoading } = useGetMediaQuery();
-  const deleteMediaData = async (id) => {
-    await deleteMedia(id);
-    window.location.reload(false);
+
+const { id } = useParams();
+const [video, setVideo] = useState([]);
+const deleteMediaData = async (id) => {
+  await deleteMedia(id);
+  window.location.reload(false);
 }
+useEffect(() => {
+const loadUserDetails = async() => {
+    const response = await getVideoUser(id);
+    setVideo(response.data)
+console.log(response.data)
+}
+loadUserDetails();
+}, []);
  
   const navigate = useNavigate();
 
 
   const columns = [
     {
-      field: 'id' , 
-      headerName: 'id', 
-      filterable: false,
-      renderCell:(index) => index.api.getRowIndexRelativeToVisibleRows(index.row._id) + 1,
-  },
-
+        field: 'id' , 
+        headerName: 'id', 
+        filterable: false,
+        renderCell:(index) => index.api.getRowIndexRelativeToVisibleRows(index.row._id) + 1,
+    },
     {
       field: "name",
       headerName: "Titre",
@@ -88,7 +100,7 @@ const ListVideo = () => {
   return (
     <Box m="20px">
       <Header title="Videos" subtitle="Gestion des videos" />
-    
+      <Button color="secondary" variant="contained" style={{marginRight:10}}  component={Link} to={`/Add/${id}`}>Ajouter un vidéo </Button> 
       <Box
         m="20px 0 0 0"
         height="75vh"
@@ -121,9 +133,9 @@ const ListVideo = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection   loading={isLoading || !data}
+        <DataGrid checkboxSelection   loading={isLoading || !video}
           getRowId={(row) => row._id}
-          rows={data || []}
+          rows={video || []}
           rowHeight={250}
           columns={columns}   components={{ Toolbar: GridToolbar }}/>
      
@@ -132,4 +144,4 @@ const ListVideo = () => {
   );
 };
 
-export default ListVideo;
+export default ListVideoUser;

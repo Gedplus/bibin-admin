@@ -23,6 +23,7 @@ import FormD from "scenes/document";
 import AddUser from "./scenes/form";
 import  Reclamation from "./scenes/reclamation";
 import Document from "listdoc";
+
 import Demande from "scenes/demande/Demande";
 import AddVideo from "scenes/videos/addVideos";
 import ListVideo from "scenes/listVideo/ListeVideo";
@@ -32,6 +33,12 @@ import ListPack from "scenes/ListePack/ListePack";
 import EditPack from "scenes/editPack/EditPack";
 import ListCommande from "scenes/commande/Commande";
 import EditCommande from "scenes/editCommande/EditCommande";
+import DocUtilisateur from "scenes/utilisateur/Docutilisateur";
+import ListVideoUser from "scenes/utilisateur/VideoUser";
+import AddVideoUser from "scenes/utilisateur/AddVideo";
+import AddDocUser from "scenes/utilisateur/AddDocUser";
+import DocApprover from "scenes/DocApprover/DocApprover";
+import EditDoc from "scenes/EditDoc/EditDoc";
 
 
 function App() {
@@ -43,14 +50,15 @@ function App() {
 
 const userId = data1;
 const { data } = useGetUserQuery(userId);
-
+console.log(data)
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
     
         <CssBaseline />
         <Routes>
-        <Route path="/login"  element={<Login />}  />
+          
+        <Route path="/"  element={<Login />}  />
            
         <Route path="/signup"  element={<Signup1 />}  />
             </Routes>
@@ -62,11 +70,18 @@ const { data } = useGetUserQuery(userId);
             <Topbar setIsSidebar={setIsSidebar}  user={data || {}} />
             
             <Routes>
-              <Route path="/" element={<Dashboard />} />
+
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/chercheur" element={<Chercheur />} />
               <Route path="/utilisateur" element={<Utilisateur />} />
+              <Route path="/DocApprover" element={<DocApprover />} />
               <Route path="/AddUser" element={<AddUser />} />
               <Route path="/edit/:id" element={<EditUser />} />
+              <Route path="/editDoc/:id" element={<EditDoc />} />
+              <Route path="/doc/:id" element={<DocUtilisateur />} />
+              <Route path="/videos/:id" element={<ListVideoUser />} />
+              <Route path="/Add/:id" element={<AddVideoUser />} />
+              <Route path="/AddDoc/:id" element={<AddDocUser />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/listDocuments" element={<Document />} />

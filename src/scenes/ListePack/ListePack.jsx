@@ -23,7 +23,12 @@ const ListPack= () => {
 
 
   const columns = [
-
+    {
+      field: 'id' , 
+      headerName: 'id', 
+      filterable: false,
+      renderCell:(index) => index.api.getRowIndexRelativeToVisibleRows(index.row._id) + 1,
+  },
     {
       field: "title",
       headerName: "Titre",
