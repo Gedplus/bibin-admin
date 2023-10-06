@@ -62,7 +62,7 @@ console.log(data)
            
         <Route path="/signup"  element={<Signup1 />}  />
             </Routes>
-        <div className="app"  style={ window.location.pathname == "/login"  ||  window.location.pathname == "/signup"? { display: "none" } : null}>
+        <div className="app"  style={ window.location.pathname == "/"  ||  window.location.pathname == "/signup"? { display: "none" } : null}>
 
 
           <Sidebar isSidebar={isSidebar}   user={data || {}} />
