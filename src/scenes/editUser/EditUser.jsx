@@ -58,6 +58,7 @@ function convertToBase64(e){
     await  setUser({...user, statue: selected})
   editUser(id, user);
   navigate("/utilisateur")
+  window.location.reload();
 
   };
   const onValueChange = (e) => {
@@ -80,7 +81,8 @@ function convertToBase64(e){
           touched,
           handleBlur,
         
-        }) => (      <form onSubmit={handleFormSubmit}>
+        }) => (   
+             <form onSubmit={handleFormSubmit}>
 
             <Box
               display="grid"

@@ -73,7 +73,7 @@ console.log(data)
 
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/chercheur" element={<Chercheur />} />
-              <Route path="/utilisateur" element={<Utilisateur />} />
+              <Route path="/utilisateur"  forceRefresh={true}  element={<Utilisateur />} />
               <Route path="/DocApprover" element={<DocApprover />} />
               <Route path="/AddUser" element={<AddUser />} />
               <Route path="/edit/:id" element={<EditUser />} />

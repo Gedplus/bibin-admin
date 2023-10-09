@@ -59,7 +59,7 @@ const Utilisateur = () => {
         return (
    <>
       {approved == true ? (<>  
-  <Chip label="Approver" color="success" /></>):(<><Chip label=" Non approver" color="error" /></>)
+  <Chip label="Vérifier" color="success" /></>):(<><Chip label=" Non Vérifier" color="error" /></>)
 
       }
     </>

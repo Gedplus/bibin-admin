@@ -82,10 +82,10 @@ export const getUser = async (id) => {
   return await axios.get(`https://api.bibintunisie.com/client/${id}`);
 }
 export const editUser = async (id, user) => {
-  return await axios.put(`https://api.bibintunisie.comclient/${id}`, user)
+  return await axios.put(`https://api.bibintunisie.com/client/${id}`, user)
 }
 export const getDocUser = async (id) => {
-  return await axios.get(`https://api.bibintunisie.comclient/documentsUser/${id}`);
+  return await axios.get(`https://api.bibintunisie.com/client/documentsUser/${id}`);
 }
 export const getVideoUser = async (id) => {
   return await axios.get(`https://api.bibintunisie.com/media/mediaUser/${id}`);

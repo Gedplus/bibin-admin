@@ -181,8 +181,9 @@ var prixt = 0
     accepte : true,
     period : period,
     };
-     addDocument(document);
-    navigate('/utilisateur');  }else {
+ await    addDocument(document);
+    navigate('/utilisateur'); 
+   }else {
       const document ={
     
         document: image,
@@ -199,7 +200,7 @@ var prixt = 0
       accepte : true,
       period : period,
       };
-       addDocument(document);
+      await    addDocument(document);
       navigate('/utilisateur');
     }
    

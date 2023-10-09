@@ -69,7 +69,7 @@ loadUserDetails();
    {videos.map((video) =>{
     return(
         <video preload="auto" width="320" height="240" controls>
-        <source src={`http://localhost:5001${video}` } />
+        <source src={`https://api.bibintunisie.com${video}` } />
        
         </video>
     )

@@ -9,13 +9,13 @@ import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import {  useParams } from 'react-router-dom';
 import Header from "../../components/Header";
 import { Link } from 'react-router-dom';
-import { deleteDoc, deleteUser, editDocument, getDocUser, useGetCustomersQuery, useGetUtilisateursQuery } from "state/api";
+import { deleteDoc, deleteUser, editDocument, getDocUser, useGetCustomersQuery, useGetDocumentQuery, useGetUtilisateursQuery } from "state/api";
 import {  Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 const DocUtilisateur = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const { data, isLoading } = useGetUtilisateursQuery();
+  const { data, isLoading } = useGetDocumentQuery();
   const { id } = useParams();
   const [doc, setDoc] = useState([]);
   const navigate = useNavigate();
@@ -166,7 +166,7 @@ console.log("ddd",response.data)
             color: `${colors.grey[100]} !important`,
           },
         }}
-      >
+      >{console.log("doc",doc)}
         <DataGrid checkboxSelection   loading={isLoading || !doc}
           getRowId={(row) => row._id}
           rows={doc || []}
