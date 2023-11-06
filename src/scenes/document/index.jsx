@@ -14,7 +14,7 @@ import FormLabel from '@mui/material/FormLabel';
 import Select from "@mui/material/Select";
 import Dropdown from '@trendmicro/react-dropdown';
 import InputLabel from "@mui/material/InputLabel";
-import {  useGetCustomersQuery } from "state/api";
+import axios from "axios";
 // Be sure to include styles at some point, probably during your bootstraping
 import { Cascader } from 'antd';
 
@@ -41,7 +41,7 @@ if (ss.length == 4)
  return  ss;
  setPrixT(ss)
 }
-const [image1 , setImage1] = useState("")
+const [image1 , setImage1] = useState("https://media.istockphoto.com/id/877235850/vector/book-icon.jpg?s=612x612&w=0&k=20&c=FSTH3SrcKKTSH09LLkucwABRWOKHRYPmEjxqBjEDjxc=")
 function convertToBase646(e){
   console.log(e);
   var reader = new FileReader();
@@ -60,72 +60,12 @@ function valueLabelFormatD(value) {
   return value;
   }
 
-function calculateValue(value) {
-  var ss=  value.toString()
- const str2 = '00';
- const str = '0';
-
-if (ss.length == 3)
-{ss= ss.concat('', str2)}
-if (ss.length == 4)
-{ss= ss.concat('', str)}
-setPrixT(ss)
-  return  ss;
-}
 
 
-function calculateValue1(value) {
-  var ss = 0
-  if( value == 0 ){
-    ss= 0
-  } else {
-    ss=  value + 0.90
-  }
-  setPrixT(ss)
-  return  ss;
- 
-}
-function calculateValue2(value) {
-  var ss = 0
-  if( value == 0 ){
-    ss= 0
-  } else {
-    ss=  value + 1.80
-  }
-  setPrixT(ss)
-  return  ss;
 
-}
-function calculateValue3(value) {
-  var ss = 0
-  if( value == 0 ){
-    ss= 0
-  } else {
-    ss=  value + 3.60
-  }
-  setPrixT(ss)
-  return  ss;
-}
-function calculateValue4(value) {
-  var ss = 0
-  if( value == 0 ){
-    ss= 0
-  } else {
-    ss=  value + 7.20
-  }
-  setPrixT(ss)
-  return  ss;
-}
-function calculateValue5(value) {
-  var ss = 0
-  if( value == 0 ){
-    ss= 0
-  } else {
-    ss=  value + 14.40
-  }
-  setPrixT(ss)
-  return  ss;
-}
+
+
+
 
 const [value, setValue] = useState(0);
 
@@ -142,28 +82,25 @@ const handleChange7 = (event, newValue) => {
   }
 };
   
-const [profession, setProfession] = useState();
+
 const [type, setType] = useState();
 const [image , setImage] = useState("")
 const [universite , setUniversite] = useState("")
-const [pieceJustificatif , setPieceJustificatif] = useState("")
-const [carteIdentite , setCarteIdentite] = useState("")
+const [file, setFile] = useState("");
 const [auteur, setAuteur] = useState();
-const [ file, setFile ] = useState(null)
-const [ fileName, setFileName ] = useState(null)
+
 const [ Annee, setAnnee] = useState(null)
 var prixt = 0
 
   const handleFormSubmit = async(values) => {
     const document ={
     
-      document: image,
-      type: type,
-      prixLecture: value,
+
+  
       prixTelechargement: prixt,
       Annee: Annee,
       auteur: auteur,
-    titre: Titre,
+
     description: description, 
 image:image1,
   
@@ -174,16 +111,39 @@ image:image1,
     await addDocument(document);
     navigate('/users');
   };
-  function handleChange1(event) {
-     setSelected(event.target.value);
-  }
-  const handleChange6 = (event) => {
-    setProfession(event.target.value);
+  const submitImage = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("title", Titre);
+    formData.append("file", file);
+    formData.append("type", type);
+    formData.append("prixLecture", value);
+    formData.append("prixTelechargement", prixt);
+    formData.append("Annee", Annee);
+    formData.append("auteur", auteur);
+    formData.append("description", description);
+    formData.append("image", image1);
+    formData.append("universite", universite);
+    formData.append("accepte", true);
+    formData.append("period", period);
+
+    const result = await axios.post(
+      "https://api.bibintunisie.com/upload-files",
+      formData,
+      {
+        headers: { "Content-Type": "multipart/form-data" },
+      }
+    );
+    console.log(result);
+    if (result.data.status == "ok") {
+      alert("Uploaded Successfully!!!");
+
+    }
   };
   const handleChange2 = (event) => {
     setType(event.target.value);
   };
-  const handleChangeA = (event) => {
+  const handleChangeA = (event) => { 
     setAuteur(event.target.value);
   };
   const options = [
@@ -1231,65 +1191,11 @@ image:image1,
     ],},
   ];
 
-  const fileToBase64 = (file, cb) => {
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.onload = function () {
-      cb(null, reader.result)
-    }
-    reader.onerror = function (error) {
-      cb(error, null)
-    }
-  }
+ 
 
-  const onUploadFileChange = ({ target }) => {
-    if (target.files < 1 || !target.validity.valid) {
-      return
-    }
-    fileToBase64(target.files[0], (err, result) => {
-      if (result) {
-        setFile(result)
-        setFileName(target.files[0])
-      }
-    })
-  }
 
-  function convertToBase64(e){
-    console.log(e);
-    var reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0]);
-    reader.onload = () => {
 
-      setImage(reader.result)
-
-    };
-    reader.onerror = error => {
-      console.log("error: ", error);
-    }}
-    function convertToBase641(e){
-      console.log(e);
-      var reader = new FileReader();
-      reader.readAsDataURL(e.target.files[0]);
-      reader.onload = () => {
-        console.log(reader.result);
-        setPieceJustificatif(reader.result)
-  
-      };
-      reader.onerror = error => {
-        console.log("error: ", error);
-      }}
-      function convertToBase642(e){
-        console.log(e);
-        var reader = new FileReader();
-        reader.readAsDataURL(e.target.files[0]);
-        reader.onload = () => {
-          console.log(reader.result);
-          setCarteIdentite(reader.result)
-    
-        };
-        reader.onerror = error => {
-          console.log("error: ", error);
-        }}
+ 
   function onChange(value) {
 
     setUniversite(value[1])
@@ -1300,7 +1206,7 @@ image:image1,
       <Header title="créer un document" subtitle="créer un noveau document " />
 
       <Formik
-        onSubmit={handleFormSubmit}
+        onSubmit={submitImage}
         initialValues={initialValues}
         validationSchema={checkoutSchema}
       >
@@ -1325,7 +1231,11 @@ image:image1,
     <Typography id="non-linear-slider"  style={{fontSize:"18px"}}  gutterBottom>
           Upload votre document:
         </Typography>
-   <input type="file"    onChange={convertToBase64}    required /> <br/> <br/>
+   <input           type="file"
+          class="form-control"
+          accept="application/pdf"
+          required
+          onChange={(e) => setFile(e.target.files[0])}/> <br/> <br/>
   
 <br/>
 {data == undefined ? (
@@ -1976,7 +1886,7 @@ style={{width:"400px"}}
                     </div>
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained" onClick={handleFormSubmit}>
+              <Button type="submit" color="secondary" variant="contained" onClick={submitImage}>
               
 créer un document
               </Button>

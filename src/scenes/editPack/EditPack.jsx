@@ -188,7 +188,7 @@ useEffect(() => {
                         
                         <CardActionArea>
                         <video preload="auto" width="282" height="158" controls>
-                        <source src={`http://localhost:5001${video}` } />
+                        <source src={`https://api.bibintunisie.com${video}` } />
                       
                         </video>
                           <CardContent>

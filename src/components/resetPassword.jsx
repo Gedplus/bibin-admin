@@ -3,13 +3,15 @@ import "./login.css"
 import {Icon} from 'react-icons-kit';
 import {eyeOff} from 'react-icons-kit/feather/eyeOff';
 import {eye} from 'react-icons-kit/feather/eye'
-import { loginAdmin } from "state/api";
+import { ResetPassword, loginAdmin } from "state/api";
+import { useNavigate, useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
-export default function Login() {
-  const [email, setEmail] = useState("");
+export default function Reset() {
+
   const [password, setPassword] = useState("");
   const [type, setType] = useState('password');
 const [icon, setIcon] = useState(eyeOff);
+const {token} = useParams();
 const handleToggle = () => {
   if (type==='password'){
      setIcon(eye);
@@ -22,45 +24,29 @@ const handleToggle = () => {
   const handleFormSubmit = async() => {
     const user ={
 
-      email:email, 
       password: password,
   
 
     };
-    const response = await loginAdmin(user);
-      console.log("dddd", response.data)
-        if (response.status == "200") {
-          alert("login successful");
-          window.localStorage.setItem("token", response.data._id);
-          window.localStorage.setItem("loggedIn", true);
-
-          window.location.href = "./dashboard";
-        }
-  
+    const response = await ResetPassword(user ,token  );
+      
+    window.location.href = "/";
   }
 
   return (
     <section class="container1 forms">
     <div class="form login">
         <div class="form-content">
-            <header class="h">Connexion</header>
+        <header class="h">Réinitialisez votre mot de passe</header>
         <div>
-          <h3>Sign In</h3>
+      
 
-          <div class="field input-field">
-            <input
-              type="email"
-              class="input" 
-              placeholder="Enter email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-               </div>
                     <div class="field input-field">
       
                     <input
                   type={type}
                   name="password"
-                  placeholder="Password"
+                  placeholder="Mot de passe"
      
                   onChange={(e) => setPassword(e.target.value)}
                   autoComplete="current-password"
@@ -75,12 +61,7 @@ const handleToggle = () => {
                     </div>
          
 
-                    <div class="form-link">
-                        <Link to="/forget-password" class="forgot-pass">Mot de passe oublié</Link>
-                    </div>
-                    <div class="form-link">
-                        <span>Vous avez déjà un compte? <a href="/signup" class="signup-link">s'inscrire</a></span>
-                    </div>
+              
         </div>
       </div>
     </div>

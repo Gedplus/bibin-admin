@@ -53,7 +53,7 @@ const Utilisateur = () => {
     },
     {
       field: "approved",
-      headerName: "Approuvé",
+      headerName: "Vérifier",
       flex: 0.5,
       renderCell: ({ row: { approved ,_id } }) => {
         return (

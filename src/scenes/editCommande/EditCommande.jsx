@@ -25,7 +25,7 @@ const EditCommande = () => {
 
   const { _id, user_id, user_email , Total , product , createdAt} = commande;
 
-const navigate = useNavigate();
+const navigate = useNavigate(); 
 const { id } = useParams();
 
 

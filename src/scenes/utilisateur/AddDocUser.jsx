@@ -13,6 +13,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Select from "@mui/material/Select";
 import Dropdown from '@trendmicro/react-dropdown';
+import axios from "axios";
 import InputLabel from "@mui/material/InputLabel";
 import {  useGetCustomersQuery } from "state/api";
 // Be sure to include styles at some point, probably during your bootstraping
@@ -27,6 +28,7 @@ const [user, setUser] = useState(initialValues);
 const [Titre, setTitre] = useState("");
 const [description, setDescription] = useState("");
 const [prixT, setPrixT] = useState(0);
+const [file, setFile] = useState("");
 const { id } = useParams();
 useEffect(() => {
     const loadUserDetails = async() => {
@@ -51,7 +53,7 @@ if (ss.length == 4)
  return  ss;
  setPrixT(ss)
 }
-const [image1 , setImage1] = useState("")
+const [image1 , setImage1] = useState("https://media.istockphoto.com/id/877235850/vector/book-icon.jpg?s=612x612&w=0&k=20&c=FSTH3SrcKKTSH09LLkucwABRWOKHRYPmEjxqBjEDjxc=")
 function convertToBase646(e){
   console.log(e);
   var reader = new FileReader();
@@ -156,55 +158,42 @@ const [profession, setProfession] = useState();
 const [type, setType] = useState();
 const [image , setImage] = useState("")
 const [universite , setUniversite] = useState("")
-const [pieceJustificatif , setPieceJustificatif] = useState("")
-const [carteIdentite , setCarteIdentite] = useState("")
 
-const [ file, setFile ] = useState(null)
-const [ fileName, setFileName ] = useState(null)
+
+
+
 const [ Annee, setAnnee] = useState(null)
 var prixt = 0
 
-  const handleFormSubmit = async(values) => {
-    if(image1 === ""){ const document ={
-    
-      document: image,
-      type: type,
-      prixLecture: value,
-      prixTelechargement: prixt,
-      Annee: Annee,
-      auteur: id,
-    titre: Titre,
-    description: description, 
+const submitImage = async (e) => {
+  e.preventDefault();
+  const formData = new FormData();
+  formData.append("title", Titre);
+  formData.append("file", file);
+  formData.append("type", type);
+  formData.append("prixLecture", value);
+  formData.append("prixTelechargement", prixt);
+  formData.append("Annee", Annee);
+  formData.append("auteur", id);
+  formData.append("description", description);
+  formData.append("image", image1);
+  formData.append("universite", universite);
+  formData.append("accepte", true);
+  formData.append("period", period);
 
-  
-    universite: universite,
-    accepte : true,
-    period : period,
-    };
- await    addDocument(document);
-    navigate('/utilisateur'); 
-   }else {
-      const document ={
-    
-        document: image,
-        type: type,
-        prixLecture: value,
-        prixTelechargement: prixt,
-        Annee: Annee,
-        auteur: id,
-      titre: Titre,
-      description: description, 
-  image:image1,
-    
-      universite: universite,
-      accepte : true,
-      period : period,
-      };
-      await    addDocument(document);
-      navigate('/utilisateur');
+  const result = await axios.post(
+    "https://api.bibintunisie.com/upload-files",
+    formData,
+    {
+      headers: { "Content-Type": "multipart/form-data" },
     }
-   
-  };
+  );
+  console.log(result);
+  if (result.data.status == "ok") {
+    alert("Uploaded Successfully!!!");
+
+  }
+};
   function handleChange1(event) {
      setSelected(event.target.value);
   }
@@ -1271,54 +1260,11 @@ var prixt = 0
     }
   }
 
-  const onUploadFileChange = ({ target }) => {
-    if (target.files < 1 || !target.validity.valid) {
-      return
-    }
-    fileToBase64(target.files[0], (err, result) => {
-      if (result) {
-        setFile(result)
-        setFileName(target.files[0])
-      }
-    })
-  }
 
-  function convertToBase64(e){
-    console.log(e);
-    var reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0]);
-    reader.onload = () => {
 
-      setImage(reader.result)
 
-    };
-    reader.onerror = error => {
-      console.log("error: ", error);
-    }}
-    function convertToBase641(e){
-      console.log(e);
-      var reader = new FileReader();
-      reader.readAsDataURL(e.target.files[0]);
-      reader.onload = () => {
-        console.log(reader.result);
-        setPieceJustificatif(reader.result)
-  
-      };
-      reader.onerror = error => {
-        console.log("error: ", error);
-      }}
-      function convertToBase642(e){
-        console.log(e);
-        var reader = new FileReader();
-        reader.readAsDataURL(e.target.files[0]);
-        reader.onload = () => {
-          console.log(reader.result);
-          setCarteIdentite(reader.result)
-    
-        };
-        reader.onerror = error => {
-          console.log("error: ", error);
-        }}
+
+
   function onChange(value) {
 
     setUniversite(value[1])
@@ -1329,7 +1275,7 @@ var prixt = 0
       <Header title="créer un document" subtitle="créer un noveau document " />
 
       <Formik
-        onSubmit={handleFormSubmit}
+        onSubmit={submitImage}
         initialValues={initialValues}
         validationSchema={checkoutSchema}
       >
@@ -1354,7 +1300,11 @@ var prixt = 0
     <Typography id="non-linear-slider"  style={{fontSize:"18px"}}  gutterBottom>
           Upload votre document:
         </Typography>
-   <input type="file"    onChange={convertToBase64}    required /> <br/> <br/>
+        <input           type="file"
+          class="form-control"
+          accept="application/pdf"
+          required
+          onChange={(e) => setFile(e.target.files[0])}/><br/> <br/>
   
 <br/>
 <br/> <br/>
@@ -1885,7 +1835,7 @@ Prix de mode lecture :  {value}
         <Slider
               style={{width:"400px"}}
           value={period}
-          min={6}
+          min={6} 
           step={1}
           max={12}
           color="secondary"
@@ -1970,7 +1920,7 @@ style={{width:"400px"}}
                     </div>
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained" onClick={handleFormSubmit}>
+              <Button type="submit" color="secondary" variant="contained" onClick={submitImage}>
               
 créer un document
               </Button>

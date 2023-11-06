@@ -127,3 +127,16 @@ export const deleteDoc = async (id) => {
 export const getDocument= async (id) => {
   return await axios.get(`https://api.bibintunisie.com/general/Document/${id}`);
 }
+export const signup= async (user) => {
+  return await axios.post(`https://api.bibintunisie.com/user/register`, user);
+}
+export const loginAdmin= async (user) => {
+  return await axios.post(`https://api.bibintunisie.com/user/admin-login`, user);
+}
+export const forgetPassword= async (email) => {
+  return await axios.post(`https://api.bibintunisie.com/user/forget-password-token-admin`, email);
+}
+export const ResetPassword= async (password,token ) => {
+  return await axios.put(`https://api.bibintunisie.com/user/reset-password/${token}`, password);
+}
+ 

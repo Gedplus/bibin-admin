@@ -98,7 +98,7 @@ const handleFormSubmit = async(id,document1) => {
  gutterBottom
  variant="h4" component="div" sx={{ mb: "1.5rem" , mt:"1.5rem"}}
 >
-Le doc en PDF :     <a href={Doc.document}   download="document.pdf">document.pdf</a>
+Le doc en PDF :    <a href={`https://api.bibintunisie.com/public/files/${Doc.document}`}>{Doc.document}</a>
 </Typography>
 <CardActions>
         {Doc.accepte==true?(<>    <Button color="success" variant="contained" style={{marginRight:10}} >Déja Approver</Button>  

@@ -24,7 +24,7 @@ const Topbar = (user) => {
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => {
     window.localStorage.clear();
-    window.location.href ="./login"
+    window.location.href ="./"
     setAnchorEl(null)};
 
   return (

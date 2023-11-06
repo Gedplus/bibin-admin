@@ -12,12 +12,15 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 const EditUser = () => { 
-    const [user, setUser] = useState(initialValues);
+    const [user, setUser] = useState("");
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const [selected, setSelected] = useState("");
 const [image , setImage] = useState("")
-  const { name, email, password , phoneNumber} = user;
 
+  const [name , setname] = useState("")
+  const [email , setemail] = useState("")
+  const [password , setpassword] = useState("")
+  const [phoneNumber , setphoneNumber] = useState("")
 const navigate = useNavigate();
 const { id } = useParams();
 console.log(user)
@@ -26,7 +29,10 @@ console.log(user)
 useEffect(() => {
     const loadUserDetails = async() => {
         const response = await getUser(id);
-        setUser(response.data);
+        setname(response.data.name);
+        setemail(response.data.email);
+        setpassword(response.data.password);
+        setphoneNumber(response.data.phoneNumber);
         setImage(response.data.image)
         setSelected(response.data.statue)
 
@@ -55,16 +61,20 @@ function convertToBase64(e){
 
   const handleFormSubmit = async() => {
   
-    await  setUser({...user, statue: selected})
-  editUser(id, user);
-  navigate("/utilisateur")
-  window.location.reload();
+const user1 ={ name: name,
+  email:email,
+  phoneNumber:phoneNumber,
+  image:image,
+  statue :selected,
+  password: password
+
+}
+
+       editUser(id, user1);
+      await navigate("/utilisateur")
+window.location.reload(false);
 
   };
-  const onValueChange = (e) => {
-  
-    setUser({...user, [e.target.name]: e.target.value})
-}
 
   return (
     <Box m="20px">
@@ -82,7 +92,7 @@ function convertToBase64(e){
           handleBlur,
         
         }) => (   
-             <form onSubmit={handleFormSubmit}>
+             <div>
 
             <Box
               display="grid"
@@ -112,8 +122,8 @@ function convertToBase64(e){
                 type="text"
                 label="Nom et prénom "
                 onBlur={handleBlur}
-                onChange={(e) => onValueChange(e)}
-    
+                onChange={(event) => {setname(event.target.value)}}
+
                 value={name}
                 name="name"
                 error={!!touched.name && !!errors.name}
@@ -126,7 +136,8 @@ function convertToBase64(e){
                 type="text"
                 label="email"
                 onBlur={handleBlur}
-                onChange={(e) => onValueChange(e)}
+                onChange={(event) => {setemail(event.target.value)}}
+
                 value={email}
                 name="email"
                 error={!!touched.email && !!errors.email}
@@ -139,8 +150,9 @@ function convertToBase64(e){
                 type="text"
                 label="Mot de passe"
                 onBlur={handleBlur}
-                onChange={(e) => onValueChange(e)}
+                onChange={(event) => {setpassword(event.target.value)}}
                 value={password}
+         disabled
                 name="password"
                 error={!!touched.password && !!errors.password}
                 helperText={touched.password && errors.password}
@@ -152,7 +164,8 @@ function convertToBase64(e){
                 type="text"
                 label="Téléphone"
                 onBlur={handleBlur}
-                onChange={(e) => onValueChange(e)}
+    
+                onChange={(event) => {setphoneNumber(event.target.value)}}
                 value={phoneNumber}
                 name="phoneNumber"
                
@@ -173,7 +186,7 @@ function convertToBase64(e){
                 Modifier l'utilisateur
               </Button>
             </Box>
- </form>
+ </div>
         )}
       </Formik>
     </Box>

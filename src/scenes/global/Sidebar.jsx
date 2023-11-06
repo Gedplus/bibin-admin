@@ -181,13 +181,7 @@ Bibin
             >
           vente 
             </Typography>
-            <Item
-              title="Liste des documents"
-              to="/listDocuments"
-              icon={<ArticleIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+         
                   <Item
               title="Documents en attente"
               to="/DocApprover"

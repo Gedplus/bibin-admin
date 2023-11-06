@@ -60,7 +60,7 @@ console.log("ddd",response.data)
         renderCell: ({ row: { document ,_id } }) => {
           return (
      
-            <a href={document}   download="document.pdf">document.pdf</a>
+            <a href={`https://api.bibintunisie.com/public/files/${document}`}>{document}</a>
            
           );
         },

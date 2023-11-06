@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useState, useEffect } from 'react';
-import { addUser, editUser, getUser } from "state/api";
+import { addUser, editUser, getUser, signup } from "state/api";
 import { useNavigate, useParams } from 'react-router-dom';
 import Header from "components/Header";
 import Radio from '@mui/material/Radio';
@@ -16,7 +16,7 @@ const AddUser = () => {
 
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const [selected, setSelected] = useState("");
-const [image , setImage] = useState("")
+const [image , setImage] = useState("https://i.stack.imgur.com/34AD2.jpg")
 
   const [name, setname] = useState();
   const [email, setemail] = useState();
@@ -53,8 +53,8 @@ function convertToBase64(e){
 
   const handleFormSubmit = async() => {
    
-     await addUser( user);
-    navigate('/users');
+     await signup( user);
+    navigate('/utilisateur');
   };
 
 

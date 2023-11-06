@@ -50,7 +50,7 @@ useEffect(() => {
       {videos== undefined ? (<></>):(<>{videos.map((video) =>{
     return(
         <video preload="auto" width="1000" height="500" controls>
-        <source src={`http://localhost:5001${video}` } />
+        <source src={`https://api.bibintunisie.com${video}` } />
     
         </video>
     )

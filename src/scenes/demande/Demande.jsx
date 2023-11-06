@@ -47,12 +47,12 @@ const handleFormSubmit = async(id,user) => {
       },
     {
       field: "justificative",
-      headerName: "Justificative de métier",
+      headerName: "Justificative de métier", 
       flex: 0.8,
       renderCell: ({ row: { justificative ,_id } }) => {
         return (      
    
-            <a href={justificative} download="Justificative.pdf"  style={{color:"#fffff"}}  >Justificative.pdf</a>
+          <img width={50} height={50} src={justificative}/>
          
         );}
     },
@@ -62,7 +62,7 @@ const handleFormSubmit = async(id,user) => {
       flex: 0.8,
       renderCell: ({ row: { CIN ,_id } }) => {
         return (
-            <a href={CIN} download="CIN.pdf"  style={{color:"#fffff"}}  >CIN.pdf</a>
+          <img width={50} height={50} src={CIN}/>
          
         );
       },

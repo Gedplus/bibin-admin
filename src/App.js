@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 
@@ -39,6 +39,9 @@ import AddVideoUser from "scenes/utilisateur/AddVideo";
 import AddDocUser from "scenes/utilisateur/AddDocUser";
 import DocApprover from "scenes/DocApprover/DocApprover";
 import EditDoc from "scenes/EditDoc/EditDoc";
+import Forget from "components/forgetPassword";
+import Reset from "components/resetPassword";
+import AddDoc from "scenes/document/addDoc";
 
 
 function App() {
@@ -50,6 +53,15 @@ function App() {
 
 const userId = data1;
 const { data } = useGetUserQuery(userId);
+
+
+const ProtectedRoute = ({ user, children }) => {
+  if (!userId) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
+};
 console.log(data)
   return (
     <ColorModeContext.Provider value={colorMode}>
@@ -61,8 +73,11 @@ console.log(data)
         <Route path="/"  element={<Login />}  />
            
         <Route path="/signup"  element={<Signup1 />}  />
+        <Route path="/forget-password"  element={<Forget />}  />
+        <Route path="/reset-password/:token"  element={<Reset />}  />
+        <Route path="/add"  element={<AddDoc />}  />
             </Routes>
-        <div className="app"  style={ window.location.pathname == "/"  ||  window.location.pathname == "/signup"? { display: "none" } : null}>
+        <div className="app"  style={ window.location.pathname == "/"  ||  window.location.pathname == "/signup" ||  window.location.pathname == "/forget-password" || window.location.pathname == "/add"   ? { display: "none" } : null}>
 
 
           <Sidebar isSidebar={isSidebar}   user={data || {}} />
@@ -71,32 +86,85 @@ console.log(data)
             
             <Routes>
 
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/chercheur" element={<Chercheur />} />
-              <Route path="/utilisateur"  forceRefresh={true}  element={<Utilisateur />} />
-              <Route path="/DocApprover" element={<DocApprover />} />
-              <Route path="/AddUser" element={<AddUser />} />
-              <Route path="/edit/:id" element={<EditUser />} />
-              <Route path="/editDoc/:id" element={<EditDoc />} />
-              <Route path="/doc/:id" element={<DocUtilisateur />} />
-              <Route path="/videos/:id" element={<ListVideoUser />} />
-              <Route path="/Add/:id" element={<AddVideoUser />} />
-              <Route path="/AddDoc/:id" element={<AddDocUser />} />
-              <Route path="/admin" element={<Admin />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/listDocuments" element={<Document />} />
-              <Route path="/documents" element={<FormD />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/Reclamation" element={<Reclamation />} />
-              <Route path="/verification" element={<Demande />} />
-              <Route path="/addvideo" element={<AddVideo />} />
-              <Route path="/addPack" element={<AddPack />} />
-              <Route path="/listvideo" element={<ListVideo />} />
-              <Route path="/listpack" element={<ListPack />} />
-              <Route path="/editMedia/:id" element={<EditMedia />} />
-              <Route path="/editPack/:id" element={<EditPack />} />
-              <Route path="/listCommande" element={<ListCommande />} />
-              <Route path="/detailCommande/:id" element={<EditCommande />} />
+              <Route path="/dashboard" element={  <ProtectedRoute user={data || {}}>
+              <Dashboard />
+            </ProtectedRoute>} />
+              <Route path="/chercheur" element={<ProtectedRoute user={data || {}}>
+              <Chercheur />
+            </ProtectedRoute>} />
+              <Route path="/utilisateur"  forceRefresh={true}  element={<ProtectedRoute user={data || {}}>
+              <Utilisateur />
+            </ProtectedRoute>} />
+              <Route path="/DocApprover" element={<ProtectedRoute user={data || {}}>
+              <DocApprover />
+            </ProtectedRoute>} />
+              <Route path="/AddUser" element={<ProtectedRoute user={data || {}}>
+              <AddUser />
+            </ProtectedRoute>} />
+              <Route path="/edit/:id" element={<ProtectedRoute user={data || {}}>
+              <EditUser />
+            </ProtectedRoute>} />
+              <Route path="/editDoc/:id" element={<ProtectedRoute user={data || {}}>
+              <EditDoc />
+            </ProtectedRoute>} />
+              <Route path="/doc/:id" element={<ProtectedRoute user={data || {}}>
+              <DocUtilisateur />
+            </ProtectedRoute>} />
+              <Route path="/videos/:id" element={<ProtectedRoute user={data || {}}>
+              <ListVideoUser />
+            </ProtectedRoute>} />
+              <Route path="/Add/:id" element={<ProtectedRoute user={data || {}}>
+              <AddVideoUser />
+            </ProtectedRoute>} />
+              <Route path="/AddDoc/:id" element={<ProtectedRoute user={data || {}}>
+              <AddDocUser />
+            </ProtectedRoute>} />
+              <Route path="/admin" element={<ProtectedRoute user={data || {}}>
+              <Admin />
+            </ProtectedRoute>} />
+              <Route path="/contact" element={<ProtectedRoute user={data || {}}>
+              <Contact />
+            </ProtectedRoute>} />
+              <Route path="/listDocuments" element={<ProtectedRoute user={data || {}}>
+              <Document />
+            </ProtectedRoute>} />
+              <Route path="/documents" element={<ProtectedRoute user={data || {}}>
+              <FormD />
+            </ProtectedRoute>} />
+              <Route path="/contact" element={<ProtectedRoute user={data || {}}>
+              <Contact />
+            </ProtectedRoute>} />
+              <Route path="/Reclamation" element={<ProtectedRoute user={data || {}}>
+              <Reclamation />
+            </ProtectedRoute>} />
+              <Route path="/verification" element={<ProtectedRoute user={data || {}}>
+              <Demande />
+            </ProtectedRoute>} />
+              <Route path="/addvideo" element={<ProtectedRoute user={data || {}}>
+              <AddVideo />
+            </ProtectedRoute>} />
+              <Route path="/addPack" element={<ProtectedRoute user={data || {}}>
+              <AddPack />
+            </ProtectedRoute>} />
+              <Route path="/listvideo" element={<ProtectedRoute user={data || {}}>
+              <ListVideo />
+            </ProtectedRoute>} />
+              <Route path="/listpack" element={<ProtectedRoute user={data || {}}>
+              <ListPack />
+            </ProtectedRoute>} />
+              <Route path="/editMedia/:id" element={<ProtectedRoute user={data || {}}>
+              <EditMedia />
+            </ProtectedRoute>} />
+              <Route path="/editPack/:id" element={<ProtectedRoute user={data || {}}>
+              <EditPack />
+            </ProtectedRoute>} />
+              <Route path="/listCommande" element={<ProtectedRoute user={data || {}}>
+              <ListCommande />
+            </ProtectedRoute>} />
+              <Route path="/detailCommande/:id" element={<ProtectedRoute user={data || {}}>
+              <EditCommande />
+            </ProtectedRoute>} />
+         
             </Routes>
           </main>
   

@@ -22,7 +22,7 @@ const DocApprover = () => {
   const handleFormSubmit = async(id,document1) => {
   
     await editDocument(id, document1 );
-  
+    window.location.reload(false);
   };
   const deleteDocData = async (id) => {
     await deleteDoc(id);
@@ -53,8 +53,8 @@ const DocApprover = () => {
       flex: 0.4,
       renderCell: ({ row: { document ,_id } }) => {
         return (
+          <a href={`https://api.bibintunisie.com/public/files/${document}`}>{document}</a>
    
-          <a href={document}   download="document.pdf">document.pdf</a>
          
         );
       },
