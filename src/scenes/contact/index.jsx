@@ -28,6 +28,11 @@ const Contact = () => {
       filterable: false,
       renderCell:(index) => index.api.getRowIndexRelativeToVisibleRows(index.row._id) + 1,
   },
+  {
+    field: "email",
+    headerName: "Email",
+    flex: 0.5,
+  },
 
     {
       field: "subject",

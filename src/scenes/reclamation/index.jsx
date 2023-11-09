@@ -31,17 +31,17 @@ const Reclamation = () => {
     {
         field: "NomPrenom",
         headerName: "Nom et prénom",
-        flex: 0.8,
+        flex: 0.5,
       },
     {
       field: "Email",
       headerName: "Adresse mail",
-      flex: 0.5,
+      flex: 0.8,
     },
     {
         field: "CIN",
         headerName: "Copie de votre CIN",
-        flex: 0.8,
+        flex: 0.7,
         renderCell: ({ row: { CIN ,_id } }) => {
           return (
      
@@ -53,7 +53,7 @@ const Reclamation = () => {
       {
         field: "justificative",
         headerName: "Piéce justificative",
-        flex: 0.8,
+        flex: 0.7,
         renderCell: ({ row: { justificative ,_id } }) => {
           return (
      
@@ -67,10 +67,14 @@ const Reclamation = () => {
     {
         field: "message",
         headerName: "Message",
-        flex: 1,
+        flex: 0.8,
       },
  
-
+      {
+        field: "phoneNumber",
+        headerName: "Numéro de téléphone",
+        flex: 0.7,
+      },
   
     {
       field: "action",
