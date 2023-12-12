@@ -74,9 +74,9 @@ const handleFormSubmit = async(id,user) => {
       headerName: "Action",
       sortable: false,
       flex: 0.5,
-      renderCell: ({ row }) =>
+      renderCell: ({ row }) =><>
      <Button color="primary" variant="contained" style={{marginRight:10}}  onClick={() => handleFormSubmit(row._id, row)} >Approver</Button> 
-
+     <Button color="primary" variant="contained" style={{marginRight:10}}  component={Link} to={`/DetailDemande/${row._id}`}>Détail</Button> </>
     },
 
 

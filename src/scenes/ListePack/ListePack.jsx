@@ -55,7 +55,7 @@ const ListPack= () => {
     {
         field: "action",
         headerName: "Action",
-        sortable: false,
+        sortable: false, 
         flex: 0.5,
         renderCell: ({ row }) =><>
        <Button color="primary" variant="contained" style={{marginRight:10}}  component={Link} to={`/editPack/${row._id}`}>Edit</Button> 

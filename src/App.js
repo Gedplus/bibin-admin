@@ -42,6 +42,8 @@ import EditDoc from "scenes/EditDoc/EditDoc";
 import Forget from "components/forgetPassword";
 import Reset from "components/resetPassword";
 import AddDoc from "scenes/document/addDoc";
+import DetailDemande from "scenes/demande/DetailDemande";
+import Detailreclamation from "scenes/reclamation/detailreclamation";
 
 
 function App() {
@@ -106,6 +108,13 @@ console.log(data)
             </ProtectedRoute>} />
               <Route path="/editDoc/:id" element={<ProtectedRoute user={data || {}}>
               <EditDoc />
+            </ProtectedRoute>} />
+
+            <Route path="/DetailDemande/:id" element={<ProtectedRoute user={data || {}}>
+              <DetailDemande />
+            </ProtectedRoute>} />
+            <Route path="/DetailReclamation/:id" element={<ProtectedRoute user={data || {}}>
+              <Detailreclamation />
             </ProtectedRoute>} />
               <Route path="/doc/:id" element={<ProtectedRoute user={data || {}}>
               <DocUtilisateur />

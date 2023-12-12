@@ -139,4 +139,6 @@ export const forgetPassword= async (email) => {
 export const ResetPassword= async (password,token ) => {
   return await axios.put(`https://api.bibintunisie.com/user/reset-password/${token}`, password);
 }
- 
+export const getReclamation = async (id) => {
+  return await axios.get(`https://api.bibintunisie.com/client/reclamation/${id}`);
+}

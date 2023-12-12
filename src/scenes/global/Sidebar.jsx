@@ -189,6 +189,13 @@ Bibin
               selected={selected}
               setSelected={setSelected}
             />
+                     <Item
+              title="Documents en list"
+              to="/listDocuments"
+              icon={<ArticleIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
                   <Item
               title="Ajouter un document"
               to="/documents"

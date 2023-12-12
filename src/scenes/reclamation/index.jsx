@@ -41,7 +41,7 @@ const Reclamation = () => {
     {
         field: "CIN",
         headerName: "Copie de votre CIN",
-        flex: 0.7,
+        flex: 0.6,
         renderCell: ({ row: { CIN ,_id } }) => {
           return (
      
@@ -53,7 +53,7 @@ const Reclamation = () => {
       {
         field: "justificative",
         headerName: "Piéce justificative",
-        flex: 0.7,
+        flex: 0.6,
         renderCell: ({ row: { justificative ,_id } }) => {
           return (
      
@@ -80,11 +80,13 @@ const Reclamation = () => {
       field: "action",
       headerName: "Action",
       sortable: false,
-      flex: 0.5,
+      flex: 0.7,
       renderCell: ({ row }) =><>
-  
+  <>
       <Button color="secondary" variant="contained" onClick={() => deleteReclamationData(row._id)} >Delete</Button> </>
-    },
+  <Button color="primary" variant="contained" style={{marginRight:10}}  component={Link} to={`/DetailReclamation/${row._id}`}>Détail</Button> </> 
+  
+  },
 
 
   ];
