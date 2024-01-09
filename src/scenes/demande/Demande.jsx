@@ -67,7 +67,11 @@ const handleFormSubmit = async(id,user) => {
         );
       },
     },
-
+    {
+      field: "createdAt",
+      headerName: "date de creation",
+      flex: 0.7,
+    },
 
     {
       field: "action",

@@ -48,6 +48,11 @@ const DocApprover = () => {
       flex: 0.3,
     },
     {
+      field: "createdAt",
+      headerName: "date de creation",
+      flex: 0.7,
+    },
+    {
       field: "document",
       headerName: "Document",
       flex: 0.4,

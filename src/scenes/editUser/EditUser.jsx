@@ -1,4 +1,4 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -21,6 +21,9 @@ const [image , setImage] = useState("")
   const [email , setemail] = useState("")
   const [password , setpassword] = useState("")
   const [phoneNumber , setphoneNumber] = useState("")
+  const [justificative , setjustificative] = useState("")
+  const [CIN , setCIN] = useState("")
+  const [approved , setapproved] = useState("")
 const navigate = useNavigate();
 const { id } = useParams();
 console.log(user)
@@ -35,7 +38,10 @@ useEffect(() => {
         setphoneNumber(response.data.phoneNumber);
         setImage(response.data.image)
         setSelected(response.data.statue)
-
+        setSelected(response.data.statue)
+        setjustificative(response.data.justificative)
+        setCIN(response.data.CIN)
+        setapproved(response.data.approved)
     }
     loadUserDetails();
   }, []);
@@ -71,8 +77,11 @@ const user1 ={ name: name,
 }
 
        editUser(id, user1);
-      await navigate("/utilisateur")
-window.location.reload(false);
+       setTimeout(()=>{
+
+        window.location.href=`/utilisateur`
+    },3000)
+     
 
   };
 
@@ -189,6 +198,15 @@ window.location.reload(false);
  </div>
         )}
       </Formik>
+      {approved == true ? (<>  
+      <Typography variant="h4" component="div" sx={{ mb: "1.5rem" }}>
+        Justificative de métier : 
+        </Typography>
+        <img width={650} height={450}  src={justificative}/>
+        <Typography variant="h4" component="div" sx={{ mb: "1.5rem" }}>
+        CIN : 
+        </Typography>
+        <img width={650} height={450}  src={CIN}/> </>):(<></>)}
     </Box>
   );
 };

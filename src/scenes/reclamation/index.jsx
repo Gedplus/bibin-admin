@@ -75,6 +75,12 @@ const Reclamation = () => {
         headerName: "Numéro de téléphone",
         flex: 0.7,
       },
+      {
+        field: "createdAt",
+        headerName: "date de creation",
+        flex: 0.7,
+      },
+  
   
     {
       field: "action",

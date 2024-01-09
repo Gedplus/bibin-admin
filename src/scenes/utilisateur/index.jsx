@@ -7,7 +7,7 @@ import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
 import { Link } from 'react-router-dom';
-import { deleteUser, useGetCustomersQuery, useGetUtilisateursQuery } from "state/api";
+import { deleteUser, editUser, useGetCustomersQuery, useGetUtilisateursQuery } from "state/api";
 import {  Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 const Utilisateur = () => {
@@ -20,7 +20,11 @@ const Utilisateur = () => {
     await deleteUser(id);
     window.location.reload(false);
 }
-
+const handleFormSubmit = async(id,user) => {
+  
+  await editUser(id, {...user, approved:true});
+  window.location.reload(false);
+};
   const columns = [
     {
       field: 'id' , 
@@ -55,11 +59,11 @@ const Utilisateur = () => {
       field: "approved",
       headerName: "Vérifier",
       flex: 0.5,
-      renderCell: ({ row: { approved ,_id } }) => {
+      renderCell: ({ row: { approved ,_id }, row }) => {
         return (
    <>
       {approved == true ? (<>  
-  <Chip label="Vérifier" color="success" /></>):(<><Chip label=" Non Vérifier" color="error" /></>)
+  <Chip label="Vérifier" color="success" /></>):(<><Chip label=" Non Vérifier"  onClick={() => handleFormSubmit(_id, row)} color="error" /></>)
 
       }
     </>
