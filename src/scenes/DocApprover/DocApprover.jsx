@@ -31,10 +31,9 @@ const DocApprover = () => {
 
   const columns = [
     {
-        field: 'id' , 
-        headerName: 'id', 
-        filterable: false,
-        renderCell:(index) => index.api.getRowIndexRelativeToVisibleRows(index.row._id) + 1,
+      field: "createdAt",
+      headerName: "date de creation",
+      flex: 0.7,
     },
 
     {
@@ -47,11 +46,7 @@ const DocApprover = () => {
       headerName: "Type",
       flex: 0.3,
     },
-    {
-      field: "createdAt",
-      headerName: "date de creation",
-      flex: 0.7,
-    },
+
     {
       field: "document",
       headerName: "Document",
@@ -65,7 +60,7 @@ const DocApprover = () => {
       },
     },
       {
-        field: "annee",
+        field: "Annee",
         headerName: "année",
         flex: 0.3,
       },

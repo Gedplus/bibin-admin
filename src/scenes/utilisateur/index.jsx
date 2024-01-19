@@ -25,13 +25,17 @@ const handleFormSubmit = async(id,user) => {
   await editUser(id, {...user, approved:true});
   window.location.reload(false);
 };
+const handleFormSubmit1 = async(id,user) => {
+  
+  await editUser(id, {...user, approved:false});
+  window.location.reload(false);
+};
   const columns = [
     {
-      field: 'id' , 
-      headerName: 'id', 
-      filterable: false,
-      renderCell:(index) => index.api.getRowIndexRelativeToVisibleRows(index.row._id) + 1,
-  },
+      field: "createdAt",
+      headerName: "date de creation",
+      flex: 0.7,
+    },
 
     {
       field: "name",
@@ -63,7 +67,7 @@ const handleFormSubmit = async(id,user) => {
         return (
    <>
       {approved == true ? (<>  
-  <Chip label="Vérifier" color="success" /></>):(<><Chip label=" Non Vérifier"  onClick={() => handleFormSubmit(_id, row)} color="error" /></>)
+  <Chip label="Vérifier" onClick={() => handleFormSubmit1(_id, row)} color="success" /></>):(<><Chip label=" Non Vérifier"  onClick={() => handleFormSubmit(_id, row)} color="error" /></>)
 
       }
     </>

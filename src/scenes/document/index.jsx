@@ -1288,20 +1288,14 @@ image:image1,
                 {console.log(auteur)}
                     <Cascader options={options} onChange={onChange} placeholder="Université dont vous avez travaillé votre document "     style={{width:"700px"}} />
                     <br/> <br/><br/>
-                    <TextField
-                    style={{width:"700px"}}
-                variant="filled"
-                type="text"
-                label="Année"
-                onBlur={handleBlur}
-               
-                value={values.Annee}
-                name="Titre"
-                onChange={(event) => {setAnnee(event.target.value)}}
-         
-            
-                sx={{ gridColumn: "span 2" }}
-              /> <br/><br/><br/>
+                    <div class="field input-field">
+                    <Typography id="non-linear-slider"  style={{fontSize:"18px"}}  gutterBottom>
+        Année de soutenance ou de publication :
+        </Typography>
+                    <input type="month" id="start" placeholder="Année" name="start"  onChange={(event) => {setAnnee(event.target.value)}} style={{width:"700px", height:"50px"}}/>
+                
+                    </div>
+                    <br/><br/>
         <FormControl
        fullWidth
           >

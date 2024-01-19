@@ -23,11 +23,10 @@ const Reclamation = () => {
 
   const columns = [
     {
-      field: 'id' , 
-      headerName: 'id', 
-      filterable: false,
-      renderCell:(index) => index.api.getRowIndexRelativeToVisibleRows(index.row._id) + 1,
-  },
+      field: "createdAt",
+      headerName: "date de creation",
+      flex: 0.7,
+    },
     {
         field: "NomPrenom",
         headerName: "Nom et prénom",
@@ -75,11 +74,7 @@ const Reclamation = () => {
         headerName: "Numéro de téléphone",
         flex: 0.7,
       },
-      {
-        field: "createdAt",
-        headerName: "date de creation",
-        flex: 0.7,
-      },
+   
   
   
     {

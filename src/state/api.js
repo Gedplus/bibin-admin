@@ -73,7 +73,7 @@ export const addPack = async (pack) => {
   return await axios.post(`https://api.bibintunisie.com/pack/packAdd`, pack);
 }
 export const deletePack = async (id) => {
-  return await axios.delete(`https://api.bibintunisie.compack/${id}`);
+  return await axios.delete(`https://api.bibintunisie.com/pack/${id}`);
 }
 export const deleteUser = async (id) => {
   return await axios.delete(`https://api.bibintunisie.com/client/${id}`);

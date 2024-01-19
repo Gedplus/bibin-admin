@@ -29,11 +29,10 @@ const handleFormSubmit = async(id,user) => {
   };
   const columns = [
     {
-      field: 'id' , 
-      headerName: 'id', 
-      filterable: false,
-      renderCell:(index) => index.api.getRowIndexRelativeToVisibleRows(index.row._id) + 1,
-  },
+      field: "createdAt",
+      headerName: "date de creation",
+      flex: 0.7,
+    },
 
     {
       field: "name",
@@ -67,12 +66,7 @@ const handleFormSubmit = async(id,user) => {
         );
       },
     },
-    {
-      field: "createdAt",
-      headerName: "date de creation",
-      flex: 0.7,
-    },
-
+  
     {
       field: "action",
       headerName: "Action",
