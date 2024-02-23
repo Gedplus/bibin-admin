@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import axios from 'axios';
 
 export const api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: "https://api.bibintunisie.com" }), 
+  baseQuery: fetchBaseQuery({ baseUrl: "https://api.bibintunisie.com/" }), 
   reducerPath: "adminApi",
   tagTypes: [
     "User",
@@ -23,6 +23,10 @@ export const api = createApi({
       getDocApprover: build.query({
         query: () => "client/DocApprover",
         providesTags: ["DocApprover"],
+      }), 
+      getDemande: build.query({
+        query: () => "general/Demandes",
+        providesTags: ["Demandes"],
       }), 
       getUtilisateursDemande: build.query({
         query: () => "client/utilisateursDemande",
@@ -64,7 +68,7 @@ export const {
   useGetUtilisateursQuery,
   useGetAdminQuery,useGetContactQuery,
   useGetDocumentQuery,
- useGetReclamationQuery,useGetUtilisateursDemandeQuery,useGetMediaQuery,useGetPackQuery, useGetCommandeQuery , useGetDocApproverQuery
+ useGetReclamationQuery,useGetUtilisateursDemandeQuery,useGetMediaQuery,useGetPackQuery, useGetCommandeQuery , useGetDocApproverQuery, useGetDemandeQuery
   } = api;
   export const addUser = async (user) => {
     return await axios.post(`https://api.bibintunisie.com/general/Useradd`, user);
@@ -141,4 +145,18 @@ export const ResetPassword= async (password,token ) => {
 }
 export const getReclamation = async (id) => {
   return await axios.get(`https://api.bibintunisie.com/client/reclamation/${id}`);
+}
+export const deleteDemande = async (id) => {
+  return await axios.delete(`https://api.bibintunisie.com/general/demande/${id}`);
+}
+export const getdemande= async (id) => {
+  return await axios.get(`https://api.bibintunisie.com/general/Demande/${id}`);
+}
+export const Editsolde = async ( id , solde) => {
+ 
+  return await axios.put(`https://api.bibintunisie.com/general/editsolddemande/${id}`,solde);
+}
+export const Editdemande = async ( id , demande) => {
+ 
+  return await axios.put(`https://api.bibintunisie.com/general/editdemande/${id}`,demande);
 }

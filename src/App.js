@@ -44,6 +44,8 @@ import Reset from "components/resetPassword";
 import AddDoc from "scenes/document/addDoc";
 import DetailDemande from "scenes/demande/DetailDemande";
 import Detailreclamation from "scenes/reclamation/detailreclamation";
+import Demandes from "scenes/demandes/listeDemande";
+import TraitementDemande from "scenes/demandes/traitemetDemande";
 
 
 function App() {
@@ -100,6 +102,9 @@ console.log(data)
               <Route path="/DocApprover" element={<ProtectedRoute user={data || {}}>
               <DocApprover />
             </ProtectedRoute>} />
+            <Route path="/Demandes" element={<ProtectedRoute user={data || {}}>
+              <Demandes />
+            </ProtectedRoute>} />
               <Route path="/AddUser" element={<ProtectedRoute user={data || {}}>
               <AddUser />
             </ProtectedRoute>} />
@@ -109,7 +114,9 @@ console.log(data)
               <Route path="/editDoc/:id" element={<ProtectedRoute user={data || {}}>
               <EditDoc />
             </ProtectedRoute>} />
-
+            <Route path="/editdemande/:id" element={<ProtectedRoute user={data || {}}>
+              <TraitementDemande />
+            </ProtectedRoute>} />
             <Route path="/DetailDemande/:id" element={<ProtectedRoute user={data || {}}>
               <DetailDemande />
             </ProtectedRoute>} />

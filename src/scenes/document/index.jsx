@@ -1321,8 +1321,8 @@ image:image1,
                   <MenuItem value="Mémoire">
                  Mémoire ou autre (niveau mastére)
                   </MenuItem>
-                  <MenuItem value="Thése">
-           Thése ou autre (niveau doctorat)
+                  <MenuItem value="Thèse">
+                  Thèse ou autre (niveau doctorat)
                   </MenuItem>
                   <MenuItem value="Article">
        Article
@@ -1447,7 +1447,7 @@ disabled
   />
 </Box></>
           )}
-           {type === "Thése" && (<>
+           {type === "Thèse" && (<>
                   <Box sx={{ width: 270 }}>
   <Typography id="non-linear-slider"  style={{fontSize:"18px"}}  gutterBottom>
   Prix de mode lecture : {value}
