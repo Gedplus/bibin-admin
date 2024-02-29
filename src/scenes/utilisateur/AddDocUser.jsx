@@ -1,5 +1,8 @@
 import { Box, Button, Card, CardMedia, MenuItem, TextField, Typography } from "@mui/material";
 import { Formik } from "formik";
+import ReactQuill from "react-quill";
+
+import "react-quill/dist/quill.snow.css";
 import * as yup from "yup";
 import { useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -72,72 +75,12 @@ function valueLabelFormatD(value) {
   return value;
   }
 
-function calculateValue(value) {
-  var ss=  value.toString()
- const str2 = '00';
- const str = '0';
-
-if (ss.length == 3)
-{ss= ss.concat('', str2)}
-if (ss.length == 4)
-{ss= ss.concat('', str)}
-setPrixT(ss)
-  return  ss;
-}
 
 
-function calculateValue1(value) {
-  var ss = 0
-  if( value == 0 ){
-    ss= 0
-  } else {
-    ss=  value + 0.90
-  }
-  setPrixT(ss)
-  return  ss;
- 
-}
-function calculateValue2(value) {
-  var ss = 0
-  if( value == 0 ){
-    ss= 0
-  } else {
-    ss=  value + 1.80
-  }
-  setPrixT(ss)
-  return  ss;
 
-}
-function calculateValue3(value) {
-  var ss = 0
-  if( value == 0 ){
-    ss= 0
-  } else {
-    ss=  value + 3.60
-  }
-  setPrixT(ss)
-  return  ss;
-}
-function calculateValue4(value) {
-  var ss = 0
-  if( value == 0 ){
-    ss= 0
-  } else {
-    ss=  value + 7.20
-  }
-  setPrixT(ss)
-  return  ss;
-}
-function calculateValue5(value) {
-  var ss = 0
-  if( value == 0 ){
-    ss= 0
-  } else {
-    ss=  value + 14.40
-  }
-  setPrixT(ss)
-  return  ss;
-}
+
+
+
 
 const [value, setValue] = useState(0);
 
@@ -158,7 +101,7 @@ const [profession, setProfession] = useState();
 const [type, setType] = useState();
 const [image , setImage] = useState("")
 const [universite , setUniversite] = useState("")
-
+const [prive, setprive] = useState("");
 
 
 
@@ -194,17 +137,13 @@ const submitImage = async (e) => {
 
   }
 };
-  function handleChange1(event) {
-     setSelected(event.target.value);
-  }
-  const handleChange6 = (event) => {
-    setProfession(event.target.value);
-  };
+
   const handleChange2 = (event) => {
     setType(event.target.value);
   };
 
   const options = [
+
     {
       value: 'Université de Tunis',
       label: 'Université de Tunis',
@@ -1252,11 +1191,12 @@ const submitImage = async (e) => {
       
       },
     ],},
-    { value: 'Autre université',
-    label: 'Autre université',
+    { value: 'Université étrangère ou privée',
+    label: 'Université étrangère ou privée',
     children: [
       {
-      
+        value: 'Université étrangère ou privée',
+        label: 'Université étrangère ou privée',
       
       },
  
@@ -1264,26 +1204,22 @@ const submitImage = async (e) => {
     ],},
   ];
 
-  const fileToBase64 = (file, cb) => {
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.onload = function () {
-      cb(null, reader.result)
-    }
-    reader.onerror = function (error) {
-      cb(error, null)
-    }
-  }
-
-
-
-
-
 
   function onChange(value) {
-
+   
     setUniversite(value[1])
+    if(value[1] ==  "Université étrangère ou privée") {
+      setprive("setprive")
+    }else {
+      setprive("setNotprive")
+    }
   }
+
+
+
+
+
+
 
   return (
     <Box mt="20px"  ml='50px'>
@@ -1326,6 +1262,10 @@ const submitImage = async (e) => {
               
                     <Cascader options={options} onChange={onChange} placeholder="Université dont vous avez travaillé votre document "     style={{width:"700px"}} />
                     <br/> <br/><br/>
+                    {prive == "setprive" && (<>
+                    <div class="field input-field" >
+                        <input type="text" placeholder="Écrivez le nom de votre université étrangére ou privée" class="input" onChange={(event) => {setUniversite(event.target.value)}} style={{width:"700px", height:"50px"}} />
+                    </div></>) } <br/>
                     <div class="field input-field">
                     <Typography id="non-linear-slider"  style={{fontSize:"18px"}}  gutterBottom>
         Année de soutenance ou de publication :
@@ -1900,21 +1840,11 @@ style={{width:"400px"}}
                 helperText={touched.Titre && errors.Titre}
                 sx={{ gridColumn: "span 2" }}
               /> <br/><br/><br/>
-              <TextField
-                   style={{width:"700px"}}
-                variant="filled"
-                type="text"
-                label="Sommaire  ou table de matiere ou déscription ou plus de détails"
-                onBlur={handleBlur}
-             
-                value={values.description}
-                name="description"
-                onChange={(event) => {setDescription(event.target.value)}}
-                error={!!touched.description && !!errors.description}
-                helperText={touched.description && errors.description}
-                sx={{ gridColumn: "span 4" }}
-                multiline
-              />
+                         <ReactQuill
+              theme="snow"
+              style={{width:"700px"}}
+              placeholder="Sommaire ou description " class="input" value={description} onChange={setDescription} 
+            />
         
 <br/><br/><br/>
             <Typography id="non-linear-slider"  style={{fontSize:"17px"}}  gutterBottom>

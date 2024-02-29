@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Document, Page } from "react-pdf";
 import pdf from "./1.pdf";
-
+ 
 function PdfComp(props) {
   const [numPages, setNumPages] = useState();
   const [pageNumber, setPageNumber] = useState(1);
@@ -9,7 +9,7 @@ function PdfComp(props) {
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }
-
+console.log(props.pdfFile, "sdddd")
   return (
     <div className="pdf-div">
            <p>
