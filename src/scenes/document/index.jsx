@@ -147,6 +147,7 @@ image:image1,
     setAuteur(event.target.value);
   };
   const options = [
+
     {
       value: 'Université de Tunis',
       label: 'Université de Tunis',
@@ -1194,14 +1195,392 @@ image:image1,
       
       },
     ],},
-    { value: 'Autre université',
-    label: 'Autre université',
+    { value: 'Université étrangère ou privée',
+    label: 'Université étrangère ou privée',
     children: [
       {
-      
+        value: 'Faculté Privée de Montplaisir / Tunis',
+        label: 'Faculté Privée de Montplaisir / Tunis',
       
       },
- 
+      {
+        value: 'Institut Privé des Hautes Etudes de Tunis',
+        label: 'Institut Privé des Hautes Etudes de Tunis',
+      
+      },
+      {
+        value: 'Faculté Privée de Droit, d’Economie et de Gestion / Tunis',
+        label: 'Faculté Privée de Droit, d’Economie et de Gestion / Tunis',
+      
+      },
+      {
+        value: 'Institut Supérieur Privé Polytechnique/ Tunis',
+        label: 'Institut Supérieur Privé Polytechnique/ Tunis',
+      
+      },
+      {
+        value: 'Ecole Supérieure Privée de Carthage des Sciences et d’Ingénierie / Tunis',
+        label: 'Ecole Supérieure Privée de Carthage des Sciences et d’Ingénierie / Tunis',
+      
+      },
+      {
+        value: 'Ecole Supérieure Privée de Carthage de Management',
+        label: 'Ecole Supérieure Privée de Carthage de Management',
+      
+      },
+      {
+        value: 'Ecole Supérieure Privée d’Ingénieurs et d’Etudes Technologiques de Tunis',
+        label: 'Ecole Supérieure Privée d’Ingénieurs et d’Etudes Technologiques de Tunis',
+      
+      },    {
+        value: 'Faculté Privée des Sciences de Gestion et de Technologie à Mégrine',
+        label: 'Faculté Privée des Sciences de Gestion et de Technologie à Mégrine',
+      
+      }, {
+        value: 'Ecole Centrale Supérieure Privée des Sciences Paramédicales et de la Santé',
+        label: 'Ecole Centrale Supérieure Privée des Sciences Paramédicales et de la Santé',
+      
+      },
+      {
+        value: 'Ecole Supérieure Privée de Technologie et de Management',
+        label: 'Ecole Supérieure Privée de Technologie et de Management',
+      
+      },{
+        value: "Ecole Supérieure Privée de Technologies de l'Information et d’Administration des Entreprises",
+        label: "Ecole Supérieure Privée de Technologies de l'Information et d’Administration des Entreprises",
+      
+      },
+      {
+        value: "Ecole Supérieure Internationale Privée de Tunis",
+        label: "Ecole Supérieure Internationale Privée de Tunis",
+      
+      },
+      {
+        value: "Ecole Méditerranéenne Supérieure Privée des Affaires",
+        label: "Ecole Méditerranéenne Supérieure Privée des Affaires",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée d'Ingénierie et de Technologie",
+        label: "Ecole Supérieure Privée d'Ingénierie et de Technologie",
+      
+      },{
+        value: "Ecole Supérieure Privée de l'Aéronautique et des Technologies",
+        label: "Ecole Supérieure Privée de l'Aéronautique et des Technologies",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée d'Architecture, d'Audiovisuel et du Design",
+        label: "Ecole Supérieure Privée d'Architecture, d'Audiovisuel et du Design",
+      
+      },{
+        value: "Faculté Privée Ibn Khaldoun de Droit, des Sciences Economiques et de Gestion",
+        label: "Faculté Privée Ibn Khaldoun de Droit, des Sciences Economiques et de Gestion",
+      
+      },{
+        value: "Ecole Supérieure Privée des Sciences Appliquées et de Management",
+        label: "Ecole Supérieure Privée des Sciences Appliquées et de Management",
+      
+      },{
+        value: "Institut Supérieur Privé des Sciences Paramédicales ' Mahmoud Materi'",
+        label: "Institut Supérieur Privé des Sciences Paramédicales ' Mahmoud Materi'",
+      
+      },
+      {
+        value: "Institut Supérieur Privé Tunis Dauphine",
+        label: "Institut Supérieur Privé Tunis Dauphine",
+      
+      }, {
+        value: "Ecole Supérieure Privée d’Administration des Affaires et de Droit « Avicenne»",
+        label: "Ecole Supérieure Privée d’Administration des Affaires et de Droit « Avicenne»",
+      
+      },{
+        value: "Ecole Centrale Supérieure Privée des Lettres, des Arts et des Sciences de la Communication",
+        label: "Ecole Centrale Supérieure Privée des Lettres, des Arts et des Sciences de la Communication",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée Centrale Polytechnique",
+        label: "Ecole Supérieure Privée Centrale Polytechnique",
+      
+      }, {
+        value: "Ecole Centrale Supérieure Privée de Droit et de Gestion",
+        label: "Ecole Centrale Supérieure Privée de Droit et de Gestion",
+      
+      },{
+        value: "Faculté Privée des Sciences de la Santé de Tunis",
+        label: "Faculté Privée des Sciences de la Santé de Tunis",
+      
+      },{
+        value: "Faculté Privée des Sciences Juridiques, Sociales, Economiques et de Gestion de Tunis",
+        label: "Faculté Privée des Sciences Juridiques, Sociales, Economiques et de Gestion de Tunis",
+      
+      },{
+        value: "Faculté Méditerranéenne Privée des Sciences Informatiques, d’Economie et de Gestion de Tunis",
+        label: "Faculté Méditerranéenne Privée des Sciences Informatiques, d’Economie et de Gestion de Tunis",
+      
+      },{
+        value: "Ecole Supérieure Privée Polytechnique Ibn Khaldoun",
+        label: "Ecole Supérieure Privée Polytechnique Ibn Khaldoun",
+      
+      },{
+        value: "Ecole Supérieure Privée d’Informatique et d’Administration des Affaires/Tunis",
+        label: "Ecole Supérieure Privée d’Informatique et d’Administration des Affaires/Tunis",
+      
+      },
+      {
+        value: "Ecole Méditerranéenne Supérieure Privée Polytechnique",
+        label: "Ecole Méditerranéenne Supérieure Privée Polytechnique",
+      
+      },
+      {
+        value: "Ecole Internationale Supérieure Privée Polytechnique de Tunis",
+        label: "Ecole Internationale Supérieure Privée Polytechnique de Tunis",
+      
+      }, {
+        value: "Institut Supérieur Privé Méditerranéen de Technologie",
+        label: "Institut Supérieur Privé Méditerranéen de Technologie",
+      
+      },{
+        value: "École supérieure privée d'ingénierie d'informatique et d'administration des affaires",
+        label: "École supérieure privée d'ingénierie d'informatique et d'administration des affaires",
+      
+      },{
+        value: "Ecole Supérieure Privée de technologie et d’ingénierie",
+        label: "Ecole Supérieure Privée de technologie et d’ingénierie",
+      
+      },{
+        value: "Institut Supérieur privé d’administration des Entreprises / Tunis",
+        label: "Institut Supérieur privé d’administration des Entreprises / Tunis",
+      
+      },{
+        value: "Institut International Supérieur Privé des Etudes Numériques et Audiovisuelles / Tunis",
+        label: "Institut International Supérieur Privé des Etudes Numériques et Audiovisuelles / Tunis",
+      
+      },
+      {
+        value: "Ecole Internationale Supérieure privée de Droit et des Affaires",
+        label: "Ecole Internationale Supérieure privée de Droit et des Affaires",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée des Affaires",
+        label: "Ecole Supérieure Privée des Affaires",
+      
+      },  {
+        value: "Faculté privée des sciences politiques et économiques",
+        label: "Faculté privée des sciences politiques et économiques",
+      
+      },{
+        value: "Ecole supérieure privée de management de Tunis",
+        label: "Ecole supérieure privée de management de Tunis",
+      
+      },{
+        value: "Ecole supérieure privée d'Assurance et de Finance",
+        label: "Ecole supérieure privée d'Assurance et de Finance",
+      
+      },{
+        value: "Ecole centrale supérieure privée de droit et des sciences politiques de Tunis",
+        label: "Ecole centrale supérieure privée de droit et des sciences politiques de Tunis",
+      
+      },{
+        value: "Ecole centrale supérieure privée d'informatique et de communication de Tunis",
+        label: "Ecole centrale supérieure privée d'informatique et de communication de Tunis",
+      
+      },{
+        value: "Ecole supérieure privée des sciences juridiques, économiques et politiques",
+        label: "Ecole supérieure privée des sciences juridiques, économiques et politiques",
+      
+      },{
+        value: "Faculté Privée de droit, des sciences politiques et de gestion 'Mahmoud El Matri'",
+        label: "Faculté Privée de droit, des sciences politiques et de gestion 'Mahmoud El Matri'",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée d'informatique et de Technologie",
+        label: "Ecole Supérieure Privée d'informatique et de Technologie",
+      
+      },
+      {
+        value: "Ecole supérieure privée Magrébine des sciences et technologie",
+        label: "Ecole supérieure privée Magrébine des sciences et technologie",
+      
+      },
+      {
+        value: "Institut Supérieur Privé des Technologies de la Digitalisation",
+        label: "Institut Supérieur Privé des Technologies de la Digitalisation",
+      
+      },   {
+        value: "Ecole internationale Supérieure Privée de Gestion Hôtelière",
+        label: "Ecole internationale Supérieure Privée de Gestion Hôtelière",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée d'Informatique et de Technologie de digitalisation",
+        label: "Ecole Supérieure Privée d'Informatique et de Technologie de digitalisation",
+      
+      },
+      
+      {
+        value: "Institut Supérieur Polytechnique Privé des Sciences Avancées du Sud",
+        label: "Institut Supérieur Polytechnique Privé des Sciences Avancées du Sud",
+      
+      },{
+        value: "Ecole Supérieure Privée des Etudes Administratives et Commerciales de Sfax",
+        label: "Ecole Supérieure Privée des Etudes Administratives et Commerciales de Sfax",
+      
+      },
+      
+      {
+        value: "Faculté Privée des Sciences Paramédicales de Sfax",
+        label: "Faculté Privée des Sciences Paramédicales de Sfax",
+      
+      }, {
+        value: "Ecole Supérieure Internationale Privée de Technologie / Sfax",
+        label: "Ecole Supérieure Internationale Privée de Technologie / Sfax",
+      
+      },
+      {
+        value: "Ecole Internationale Supérieure Privée des Affaires / Sfax",
+        label: "Ecole Internationale Supérieure Privée des Affaires / Sfax",
+      
+      }, {
+        value: "Ecole Polytechnique Internationale Supérieure Privée de Sfax",
+        label: "Ecole Polytechnique Internationale Supérieure Privée de Sfax",
+      
+      },{
+        value: "Institut Supérieur Privé des Sciences de la santé de Sousse",
+        label: "Institut Supérieur Privé des Sciences de la santé de Sousse",
+      
+      },{
+        value: "Institut Supérieur Privé des Sciences Infirmières 'EL AMED'",
+        label: "Institut Supérieur Privé des Sciences Infirmières 'EL AMED'",
+      
+      },{
+        value: "Ecole Supérieure Privée d’Ingénierie, des Sciences et de Technologie de Sousse",
+        label: "Ecole Supérieure Privée d’Ingénierie, des Sciences et de Technologie de Sousse",
+      
+      },
+      {
+        value: "Institut Supérieur Privé des Sciences Infirmières 'Etoile de formation'",
+        label: "Institut Supérieur Privé des Sciences Infirmières 'Etoile de formation'",
+      
+      },
+      {
+        value: "Institut Supérieur Privé des Sciences Infirmières de Sousse",
+        label: "Institut Supérieur Privé des Sciences Infirmières de Sousse",
+      
+      },  {
+        value: "Ecole Supérieure Polytechnique Privée de Sousse",
+        label: "Ecole Supérieure Polytechnique Privée de Sousse",
+      
+      },
+      {
+        value: "Institut Privé des Hautes Etudes de Sousse",
+        label: "Institut Privé des Hautes Etudes de Sousse",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée de Technologie, d’Informatique et de Gestion de Sousse",
+        label: "Ecole Supérieure Privée de Technologie, d’Informatique et de Gestion de Sousse",
+      
+      },
+      {
+        value: "Ecole Internationale Supérieure Privée Polytechnique de Sousse",
+        label: "Ecole Internationale Supérieure Privée Polytechnique de Sousse",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée d’Ingénierie et de Technologie appliquée/ Sousse",
+        label: "Ecole Supérieure Privée d’Ingénierie et de Technologie appliquée/ Sousse",
+      
+      },
+      {
+        value: "Faculté Privée de Gestion et des Sciences de l’Administration de Sousse",
+        label: "Faculté Privée de Gestion et des Sciences de l’Administration de Sousse",
+      
+      },
+      {
+        value: "Ecole Supérieure Internationale Privée de Management de Sousse",
+        label: "Ecole Supérieure Internationale Privée de Management de Sousse",
+      
+      },  {
+        value: "Ecole Supérieure Privée d’Economie et de Gestion de Sousse",
+        label: "Ecole Supérieure Privée d’Economie et de Gestion de Sousse",
+      
+      },
+      {
+        value: "Ecole supérieure privée de technologie avancée de Sousse",
+        label: "Ecole supérieure privée de technologie avancée de Sousse",
+      
+      },   {
+        value: "Ecole supérieure privée des sciences commerciales et des affaires",
+        label: "Ecole supérieure privée des sciences commerciales et des affaires",
+      
+      },  {
+        value: "Ecole internationale supérieure privée de management et de marketing de Sousse",
+        label: "Ecole internationale supérieure privée de management et de marketing de Sousse",
+      
+      }, {
+        value: "Ecole supérieure privée des technologies numériques'l'Horizon'",
+        label: "Ecole supérieure privée des technologies numériques'l'Horizon'",
+      
+      },
+      {
+        value: "Institut Supérieur privé des sciences et technologie en informatique appliquée de Sousse",
+        label: "Institut Supérieur privé des sciences et technologie en informatique appliquée de Sousse",
+      
+      },
+      {
+        value: "Ecole Méditerranéenne Supérieure Privée des Sciences Informatiques, d’Economie et de Gestion de Nabeul",
+        label: "Ecole Méditerranéenne Supérieure Privée des Sciences Informatiques, d’Economie et de Gestion de Nabeul",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée de Technologie de l’Information et de Management de Nabeul",
+        label: "Ecole Supérieure Privée de Technologie de l’Information et de Management de Nabeul",
+      
+      }, {
+        value: "Faculté Privée des sciences de l’informatique et de management de Nabeul",
+        label: "Faculté Privée des sciences de l’informatique et de management de Nabeul",
+      
+      },
+      {
+        value: "Institut Supérieur Privé des Sciences Infirmières de Kairouan",
+        label: "Institut Supérieur Privé des Sciences Infirmières de Kairouan",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée des Sciences Appliquées et de Technologie de Gabès",
+        label: "Ecole Supérieure Privée des Sciences Appliquées et de Technologie de Gabès",
+      
+      },
+      {
+        value: "Ecole supérieure privée de technologie et de management de Gabès",
+        label: "Ecole supérieure privée de technologie et de management de Gabès",
+      
+      },
+      {
+        value: "Ecole Supérieure Polytechnique Privée de Monastir",
+        label: "Ecole Supérieure Polytechnique Privée de Monastir",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée d’ingénieurs de Monastir",
+        label: "Ecole Supérieure Privée d’ingénieurs de Monastir",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée d’ingénieurs de Gafsa",
+        label: "Ecole Supérieure Privée d’ingénieurs de Gafsa",
+      
+      },
+      {
+        value: "Autre université étrangère ou privée",
+        label: "Autre université étrangère ou privée",
+      
+      },
+      
       
     ],},
   ];
