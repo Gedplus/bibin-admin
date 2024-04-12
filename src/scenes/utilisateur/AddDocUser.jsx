@@ -1191,8 +1191,8 @@ const submitImage = async (e) => {
       
       },
     ],},
-    { value: 'Université étrangère ou privée',
-    label: 'Université étrangère ou privée',
+    { value: 'Universités privées de Tunis',
+    label: 'Universités privées de Tunis',
     children: [
       {
         value: 'Faculté Privée de Montplaisir / Tunis',
@@ -1416,35 +1416,17 @@ const submitImage = async (e) => {
         label: "Ecole Supérieure Privée d'Informatique et de Technologie de digitalisation",
       
       },
+   
+   
+    
+      
+      
+    ],},
+    { value: 'Universités privées de Sousse',
+    label: 'Universités privées de Sousse',
+    children: [
       
       {
-        value: "Institut Supérieur Polytechnique Privé des Sciences Avancées du Sud",
-        label: "Institut Supérieur Polytechnique Privé des Sciences Avancées du Sud",
-      
-      },{
-        value: "Ecole Supérieure Privée des Etudes Administratives et Commerciales de Sfax",
-        label: "Ecole Supérieure Privée des Etudes Administratives et Commerciales de Sfax",
-      
-      },
-      
-      {
-        value: "Faculté Privée des Sciences Paramédicales de Sfax",
-        label: "Faculté Privée des Sciences Paramédicales de Sfax",
-      
-      }, {
-        value: "Ecole Supérieure Internationale Privée de Technologie / Sfax",
-        label: "Ecole Supérieure Internationale Privée de Technologie / Sfax",
-      
-      },
-      {
-        value: "Ecole Internationale Supérieure Privée des Affaires / Sfax",
-        label: "Ecole Internationale Supérieure Privée des Affaires / Sfax",
-      
-      }, {
-        value: "Ecole Polytechnique Internationale Supérieure Privée de Sfax",
-        label: "Ecole Polytechnique Internationale Supérieure Privée de Sfax",
-      
-      },{
         value: "Institut Supérieur Privé des Sciences de la santé de Sousse",
         label: "Institut Supérieur Privé des Sciences de la santé de Sousse",
       
@@ -1527,6 +1509,47 @@ const submitImage = async (e) => {
         label: "Institut Supérieur privé des sciences et technologie en informatique appliquée de Sousse",
       
       },
+      
+    ],},
+    { value: 'Universités privées de Sfax',
+    label: 'Universités privées de Sfax',
+    children: [
+      
+      {
+        value: "Institut Supérieur Polytechnique Privé des Sciences Avancées du Sud",
+        label: "Institut Supérieur Polytechnique Privé des Sciences Avancées du Sud",
+      
+      },{
+        value: "Ecole Supérieure Privée des Etudes Administratives et Commerciales de Sfax",
+        label: "Ecole Supérieure Privée des Etudes Administratives et Commerciales de Sfax",
+      
+      },
+      
+      {
+        value: "Faculté Privée des Sciences Paramédicales de Sfax",
+        label: "Faculté Privée des Sciences Paramédicales de Sfax",
+      
+      }, {
+        value: "Ecole Supérieure Internationale Privée de Technologie / Sfax",
+        label: "Ecole Supérieure Internationale Privée de Technologie / Sfax",
+      
+      },
+      {
+        value: "Ecole Internationale Supérieure Privée des Affaires / Sfax",
+        label: "Ecole Internationale Supérieure Privée des Affaires / Sfax",
+      
+      }, {
+        value: "Ecole Polytechnique Internationale Supérieure Privée de Sfax",
+        label: "Ecole Polytechnique Internationale Supérieure Privée de Sfax",
+      
+      },
+
+      
+    ],},
+    { value: 'Universités privées de Nabeul et Monastir',
+    label: 'Universités privées de Nabeul et Monastir',
+    children: [
+   
       {
         value: "Ecole Méditerranéenne Supérieure Privée des Sciences Informatiques, d’Economie et de Gestion de Nabeul",
         label: "Ecole Méditerranéenne Supérieure Privée des Sciences Informatiques, d’Economie et de Gestion de Nabeul",
@@ -1541,6 +1564,23 @@ const submitImage = async (e) => {
         label: "Faculté Privée des sciences de l’informatique et de management de Nabeul",
       
       },
+    {
+        value: "Ecole Supérieure Polytechnique Privée de Monastir",
+        label: "Ecole Supérieure Polytechnique Privée de Monastir",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée d’ingénieurs de Monastir",
+        label: "Ecole Supérieure Privée d’ingénieurs de Monastir",
+      
+      },
+
+      
+    ],},
+    { value: 'Universités privées de Gabes, Gafsa et Kairouan',
+    label: 'Universités privées de Gabes, Gafsa et Kairouan',
+    children: [
+   
       {
         value: "Institut Supérieur Privé des Sciences Infirmières de Kairouan",
         label: "Institut Supérieur Privé des Sciences Infirmières de Kairouan",
@@ -1556,27 +1596,12 @@ const submitImage = async (e) => {
         label: "Ecole supérieure privée de technologie et de management de Gabès",
       
       },
-      {
-        value: "Ecole Supérieure Polytechnique Privée de Monastir",
-        label: "Ecole Supérieure Polytechnique Privée de Monastir",
-      
-      },
-      {
-        value: "Ecole Supérieure Privée d’ingénieurs de Monastir",
-        label: "Ecole Supérieure Privée d’ingénieurs de Monastir",
-      
-      },
+  
       {
         value: "Ecole Supérieure Privée d’ingénieurs de Gafsa",
         label: "Ecole Supérieure Privée d’ingénieurs de Gafsa",
       
       },
-      {
-        value: "Autre université étrangère ou privée",
-        label: "Autre université étrangère ou privée",
-      
-      },
-      
       
     ],},
   ];
@@ -1730,7 +1755,7 @@ const submitImage = async (e) => {
         />
       </Box>          <Box sx={{ width: 270 }}>
         <Typography id="non-linear-slider"   style={{fontSize:"18px"}} gutterBottom>
-        Prix  téléchargement : { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value + 4 )* 1000) / 1000 } dt</>)}
+        Prix  téléchargement : { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value *2 )* 1000) / 1000 } dt</>)}
         </Typography>
         <Slider
              style={{width:"400px"}}
@@ -1785,7 +1810,7 @@ const submitImage = async (e) => {
       />
     </Box>     <Box sx={{ width: 270 }}>
   <Typography id="non-linear-slider"  style={{fontSize:"18px"}}  gutterBottom>
-  Prix téléchargement :   { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value + 6 )* 1000) / 1000 }</>)}
+  Prix téléchargement :   { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value * 2 )* 1000) / 1000 }</>)}
   </Typography>
   <Slider
        style={{width:"400px"}}
@@ -1842,7 +1867,7 @@ disabled
       />
     </Box>           <Box sx={{ width: 270 }}>
   <Typography id="non-linear-slider"  style={{fontSize:"18px"}}  gutterBottom>
-  Prix téléchargement : { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value + 8 )* 1000) / 1000 }</>)}
+  Prix téléchargement : { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value  * 2)* 1000) / 1000 }</>)}
   </Typography>
   <Slider
        style={{width:"400px"}}
@@ -1897,7 +1922,7 @@ Prix du mode lecture :  {value}
         />
       </Box>       <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} >
-Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value + 8 )* 1000) / 1000 }</>)}
+Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value *2 )* 1000) / 1000 }</>)}
 </Typography>
 <Slider
   value={value}
@@ -2009,7 +2034,7 @@ Prix du mode lecture :  {value}
         />
       </Box>       <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} >
-Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value + 8 )* 1000) / 1000 }</>)}
+Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value * 2 )* 1000) / 1000 }</>)}
 </Typography>
 <Slider
   value={value}
@@ -2062,7 +2087,7 @@ Prix du mode lecture :  {value}
         />
       </Box>       <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} >
-Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value + 8 )* 1000) / 1000 }</>)}
+Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value * 2 )* 1000) / 1000 }</>)}
 </Typography>
 <Slider
   value={value}
@@ -2118,7 +2143,7 @@ Prix du mode lecture :  {value}
         />
       </Box>       <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} >
-Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value + 8 )* 1000) / 1000 }</>)}
+Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value * 2 )* 1000) / 1000 }</>)}
 </Typography>
 <Slider
   value={value}
@@ -2174,7 +2199,7 @@ Prix du mode lecture :  {value}
         />
       </Box>       <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} >
-Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value + 8 )* 1000) / 1000 }</>)}
+Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value * 2 )* 1000) / 1000 }</>)}
 </Typography>
 <Slider
   value={value}

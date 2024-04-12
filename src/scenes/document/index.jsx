@@ -1195,8 +1195,8 @@ image:image1,
       
       },
     ],},
-    { value: 'Université étrangère ou privée',
-    label: 'Université étrangère ou privée',
+    { value: 'Universités privées de Tunis',
+    label: 'Universités privées de Tunis',
     children: [
       {
         value: 'Faculté Privée de Montplaisir / Tunis',
@@ -1420,35 +1420,17 @@ image:image1,
         label: "Ecole Supérieure Privée d'Informatique et de Technologie de digitalisation",
       
       },
+   
+   
+    
+      
+      
+    ],},
+    { value: 'Universités privées de Sousse',
+    label: 'Universités privées de Sousse',
+    children: [
       
       {
-        value: "Institut Supérieur Polytechnique Privé des Sciences Avancées du Sud",
-        label: "Institut Supérieur Polytechnique Privé des Sciences Avancées du Sud",
-      
-      },{
-        value: "Ecole Supérieure Privée des Etudes Administratives et Commerciales de Sfax",
-        label: "Ecole Supérieure Privée des Etudes Administratives et Commerciales de Sfax",
-      
-      },
-      
-      {
-        value: "Faculté Privée des Sciences Paramédicales de Sfax",
-        label: "Faculté Privée des Sciences Paramédicales de Sfax",
-      
-      }, {
-        value: "Ecole Supérieure Internationale Privée de Technologie / Sfax",
-        label: "Ecole Supérieure Internationale Privée de Technologie / Sfax",
-      
-      },
-      {
-        value: "Ecole Internationale Supérieure Privée des Affaires / Sfax",
-        label: "Ecole Internationale Supérieure Privée des Affaires / Sfax",
-      
-      }, {
-        value: "Ecole Polytechnique Internationale Supérieure Privée de Sfax",
-        label: "Ecole Polytechnique Internationale Supérieure Privée de Sfax",
-      
-      },{
         value: "Institut Supérieur Privé des Sciences de la santé de Sousse",
         label: "Institut Supérieur Privé des Sciences de la santé de Sousse",
       
@@ -1531,6 +1513,47 @@ image:image1,
         label: "Institut Supérieur privé des sciences et technologie en informatique appliquée de Sousse",
       
       },
+      
+    ],},
+    { value: 'Universités privées de Sfax',
+    label: 'Universités privées de Sfax',
+    children: [
+      
+      {
+        value: "Institut Supérieur Polytechnique Privé des Sciences Avancées du Sud",
+        label: "Institut Supérieur Polytechnique Privé des Sciences Avancées du Sud",
+      
+      },{
+        value: "Ecole Supérieure Privée des Etudes Administratives et Commerciales de Sfax",
+        label: "Ecole Supérieure Privée des Etudes Administratives et Commerciales de Sfax",
+      
+      },
+      
+      {
+        value: "Faculté Privée des Sciences Paramédicales de Sfax",
+        label: "Faculté Privée des Sciences Paramédicales de Sfax",
+      
+      }, {
+        value: "Ecole Supérieure Internationale Privée de Technologie / Sfax",
+        label: "Ecole Supérieure Internationale Privée de Technologie / Sfax",
+      
+      },
+      {
+        value: "Ecole Internationale Supérieure Privée des Affaires / Sfax",
+        label: "Ecole Internationale Supérieure Privée des Affaires / Sfax",
+      
+      }, {
+        value: "Ecole Polytechnique Internationale Supérieure Privée de Sfax",
+        label: "Ecole Polytechnique Internationale Supérieure Privée de Sfax",
+      
+      },
+
+      
+    ],},
+    { value: 'Universités privées de Nabeul et Monastir',
+    label: 'Universités privées de Nabeul et Monastir',
+    children: [
+   
       {
         value: "Ecole Méditerranéenne Supérieure Privée des Sciences Informatiques, d’Economie et de Gestion de Nabeul",
         label: "Ecole Méditerranéenne Supérieure Privée des Sciences Informatiques, d’Economie et de Gestion de Nabeul",
@@ -1545,6 +1568,23 @@ image:image1,
         label: "Faculté Privée des sciences de l’informatique et de management de Nabeul",
       
       },
+    {
+        value: "Ecole Supérieure Polytechnique Privée de Monastir",
+        label: "Ecole Supérieure Polytechnique Privée de Monastir",
+      
+      },
+      {
+        value: "Ecole Supérieure Privée d’ingénieurs de Monastir",
+        label: "Ecole Supérieure Privée d’ingénieurs de Monastir",
+      
+      },
+
+      
+    ],},
+    { value: 'Universités privées de Gabes, Gafsa et Kairouan',
+    label: 'Universités privées de Gabes, Gafsa et Kairouan',
+    children: [
+   
       {
         value: "Institut Supérieur Privé des Sciences Infirmières de Kairouan",
         label: "Institut Supérieur Privé des Sciences Infirmières de Kairouan",
@@ -1560,27 +1600,12 @@ image:image1,
         label: "Ecole supérieure privée de technologie et de management de Gabès",
       
       },
-      {
-        value: "Ecole Supérieure Polytechnique Privée de Monastir",
-        label: "Ecole Supérieure Polytechnique Privée de Monastir",
-      
-      },
-      {
-        value: "Ecole Supérieure Privée d’ingénieurs de Monastir",
-        label: "Ecole Supérieure Privée d’ingénieurs de Monastir",
-      
-      },
+  
       {
         value: "Ecole Supérieure Privée d’ingénieurs de Gafsa",
         label: "Ecole Supérieure Privée d’ingénieurs de Gafsa",
       
       },
-      {
-        value: "Autre université étrangère ou privée",
-        label: "Autre université étrangère ou privée",
-      
-      },
-      
       
     ],},
   ];
