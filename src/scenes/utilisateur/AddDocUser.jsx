@@ -114,7 +114,7 @@ const submitImage = async (e) => {
   formData.append("title", Titre);
   formData.append("file", file);
   formData.append("type", type);
-  formData.append("prixLecture", value);
+  formData.append("prixLecture",  (value).toFixed(3));
   formData.append("prixTelechargement", prixt);
   formData.append("Annee", Annee);
   formData.append("auteur", id);
@@ -1699,7 +1699,7 @@ const submitImage = async (e) => {
            PFE ou autre (niveau licence)
                   </MenuItem>
                   <MenuItem value="Mémoire">
-                 Mémoire ou autre (niveau mastére)
+                 Mémoire ou autre (niveau mastère)
                   </MenuItem>
                   <MenuItem value="Thèse">
                   Thèse ou autre (niveau doctorat)
@@ -1719,7 +1719,7 @@ const submitImage = async (e) => {
                       <br/>
                         <Box sx={{ width: 270 }}>
         <Typography id="non-linear-slider"  style={{fontSize:"18px"}}  gutterBottom>
-          Prix du mode lecture : {value} dt
+          Prix du mode lecture : {(value).toFixed(3)} dt
         </Typography>
         <Slider
               style={{width:"400px"}}
@@ -1755,7 +1755,7 @@ const submitImage = async (e) => {
         />
       </Box>          <Box sx={{ width: 270 }}>
         <Typography id="non-linear-slider"   style={{fontSize:"18px"}} gutterBottom>
-        Prix  téléchargement : { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value *2 )* 1000) / 1000 } dt</>)}
+        Prix  téléchargement : { value == 0 ?(<>{prixt =value } </>):(<>{prixt =( Math.round((value * 2 )* 1000) / 1000 ).toFixed(3)}dt</>)}
         </Typography>
         <Slider
              style={{width:"400px"}}
@@ -1774,7 +1774,7 @@ const submitImage = async (e) => {
                 )} {type === "Mémoire" && (<>
                   <Box sx={{ width: 270 }}>
   <Typography id="non-linear-slider"  style={{fontSize:"18px"}}  gutterBottom>
-  Prix du mode lecture :  {value}
+  Prix du mode lecture : {(value).toFixed(3)}
   </Typography>
   <Slider
     value={value}
@@ -1810,7 +1810,7 @@ const submitImage = async (e) => {
       />
     </Box>     <Box sx={{ width: 270 }}>
   <Typography id="non-linear-slider"  style={{fontSize:"18px"}}  gutterBottom>
-  Prix téléchargement :   { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value * 2 )* 1000) / 1000 }</>)}
+  Prix téléchargement :   { value == 0 ?(<>{prixt =value } </>):(<>{prixt =( Math.round((value * 2 )* 1000) / 1000 ).toFixed(3)}</>)}
   </Typography>
   <Slider
        style={{width:"400px"}}
@@ -1830,7 +1830,7 @@ disabled
            {type === "Thèse" && (<>
                   <Box sx={{ width: 270 }}>
   <Typography id="non-linear-slider"  style={{fontSize:"18px"}}  gutterBottom>
-  Prix du mode lecture : {value}
+  Prix du mode lecture : {(value).toFixed(3)}
   </Typography>
   <Slider
        style={{width:"400px"}}
@@ -1867,7 +1867,7 @@ disabled
       />
     </Box>           <Box sx={{ width: 270 }}>
   <Typography id="non-linear-slider"  style={{fontSize:"18px"}}  gutterBottom>
-  Prix téléchargement : { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value  * 2)* 1000) / 1000 }</>)}
+  Prix téléchargement : { value == 0 ?(<>{prixt =value } </>):(<>{prixt =( Math.round((value * 2 )* 1000) / 1000 ).toFixed(3)}</>)}
   </Typography>
   <Slider
        style={{width:"400px"}}
@@ -1887,7 +1887,7 @@ disabled
 
 {user.statue === "professionnel" && user.approved === true && type==="Article"  && (<>        <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} > 
-Prix du mode lecture :  {value}
+Prix du mode lecture :  {(value).toFixed(3)}
 </Typography>
 <Slider
   value={value}
@@ -1922,7 +1922,7 @@ Prix du mode lecture :  {value}
         />
       </Box>       <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} >
-Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value *2 )* 1000) / 1000 }</>)}
+Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =( Math.round((value * 2 )* 1000) / 1000 ).toFixed(3)}</>)}
 </Typography>
 <Slider
   value={value}
@@ -1942,7 +1942,7 @@ style={{width:"400px"}}
 La soumission de ce type de document est conditionnée à la vérification préalable de votre compte
 </Typography>        <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} > 
-Prix du mode lecture :  {value}
+Prix du mode lecture :  {(value).toFixed(3)}
 </Typography>
 <Slider
   value={value}
@@ -1978,7 +1978,7 @@ Prix du mode lecture :  {value}
         />
       </Box>       <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} >
-Prix  téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =value + 8}</>)}
+Prix  téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =( Math.round((value * 2 )* 1000) / 1000 ).toFixed(3)}</>)}
 </Typography>
 <Slider
   value={value}
@@ -1998,7 +1998,7 @@ style={{width:"400px"}}
 La soumission de ce type de document est conditionnée à la vérification préalable de votre compte
 </Typography>      <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} > 
-Prix du mode lecture :  {value}
+Prix du mode lecture :  {(value).toFixed(3)}
 </Typography>
 <Slider
   value={value}
@@ -2034,7 +2034,7 @@ Prix du mode lecture :  {value}
         />
       </Box>       <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} >
-Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value * 2 )* 1000) / 1000 }</>)}
+Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =( Math.round((value * 2 )* 1000) / 1000 ).toFixed(3)}</>)}
 </Typography>
 <Slider
   value={value}
@@ -2052,7 +2052,7 @@ style={{width:"400px"}}
 </Box></> )}
 {user.statue === "professionnel" && user.approved === true && type==="Ouvrage"  && (<>        <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} > 
-Prix du mode lecture :  {value}
+Prix du mode lecture :  {(value).toFixed(3)}
 </Typography>
 <Slider
   value={value}
@@ -2087,7 +2087,7 @@ Prix du mode lecture :  {value}
         />
       </Box>       <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} >
-Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value * 2 )* 1000) / 1000 }</>)}
+Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =( Math.round((value * 2 )* 1000) / 1000 ).toFixed(3)}</>)}
 </Typography>
 <Slider
   value={value}
@@ -2107,7 +2107,7 @@ style={{width:"400px"}}
 La soumission de ce type de document est conditionnée à la vérification préalable de votre compte
 </Typography>        <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} > 
-Prix du mode lecture :  {value}
+Prix du mode lecture :  {(value).toFixed(3)}
 </Typography>
 <Slider
   value={value}
@@ -2143,7 +2143,7 @@ Prix du mode lecture :  {value}
         />
       </Box>       <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} >
-Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value * 2 )* 1000) / 1000 }</>)}
+Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =( Math.round((value * 2 )* 1000) / 1000 ).toFixed(3)}</>)}
 </Typography>
 <Slider
   value={value}
@@ -2163,7 +2163,7 @@ style={{width:"400px"}}
 La soumission de ce type de document est conditionnée à la vérification préalable de votre compte
 </Typography>      <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} > 
-Prix du mode lecture :  {value}
+Prix du mode lecture :  {(value).toFixed(3)}
 </Typography>
 <Slider
   value={value}
@@ -2199,7 +2199,7 @@ Prix du mode lecture :  {value}
         />
       </Box>       <Box sx={{ width: 270 }}>
 <Typography id="non-linear-slider" gutterBottom style={{fontSize:"18px"}} >
-Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =Math.round((value * 2 )* 1000) / 1000 }</>)}
+Prix téléchargement: { value == 0 ?(<>{prixt =value } </>):(<>{prixt =( Math.round((value * 2 )* 1000) / 1000 ).toFixed(3)}</>)}
 </Typography>
 <Slider
   value={value}
